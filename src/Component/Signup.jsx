@@ -1,22 +1,16 @@
-import React, { useState,useEffect } from 'react'
-import { Link,useNavigate } from 'react-router-dom'
-import { useSelector,useDispatch } from 'react-redux'
-
-import {getUser,addUser} from "../Store/ActionCreators/UserActionCreators"
+import React, { useState } from 'react'
+import { Link } from 'react-router-dom'
 
 export default function Signup() {
     var [data, setdata] = useState({
-        name: "",
+        fname: "",
         username: "",
-        email: "",
         phone: "",
+        email: "",
         password: "",
-        cpassword: "",
+        cpassword: ""
     })
-    var users = useSelector((state)=>state.UserStateData)
-    var dispatch = useDispatch()
-    var navigate = useNavigate()
-    function getData(e) {
+    function getdata(e) {
         var name = e.target.name
         var value = e.target.value
         setdata((old) => {
@@ -26,79 +20,74 @@ export default function Signup() {
             }
         })
     }
-    function postData(e) {
+
+    function postdata(e) {
         e.preventDefault()
         if (data.password === data.cpassword) {
-           var d = users.find((item)=>item.username===data.username)
-           if(d)
-           alert("UserName Already Taken!!!")
-           else{
-            var item = {
-                name:data.name,
-                username:data.username,
-                email:data.email,
-                phone:data.phone,
-                password:data.password,
-                addressline1:"",
-                addressline2:"",
-                addressline3:"",
-                pin:"",
-                city:"",
-                state:"",
-                pic:"",
-                role:"User",
-            }
-            dispatch(addUser(item))
-            navigate("/login")
-           }
+            alert(`
+        full name   :  ${data.fname}
+        username    :  ${data.username}
+        phone       :  ${data.phone}
+        email       :  ${data.email}
+        password    :  ${data.password}
+        cpassword   :  ${data.cpassword}
+        `)
         }
-        else
-            alert("Password and Confirm Password Doesn't Matched!!!!")
+        else {
+            alert("password and confirm password doesn't matched ")
+        }
     }
-    useEffect(()=>{
-        dispatch(getUser())
-    },[])
+
+
     return (
         <>
-            <div className="hero-wrap hero-bread">
+            <div className="hero-wrap hero-bread" style={{ backgroundImage: "url('assets/images/bg_6.jpg')" }}>
                 <div className="container">
                     <div className="row no-gutters slider-text align-items-center justify-content-center">
-                        <div className="col-md-9 ftco-animate text-center">
-                            <div className="container-fluid w-100">
-                                <div className='m-auto w-100'>
-                                    <h5 className='text-center bg-secondary p-2 text-light'>Signup Section</h5>
-                                    <form className='' onSubmit={postData}>
-                                        <div className="row mb-3">
-                                            <div className="col-md-6 col-12">
-                                                <input type="text" name="name" id="name" onChange={getData} placeholder='Enter Full Name : ' className='form-control' />
-                                            </div>
-                                            <div className="col-md-6 col-12">
-                                                <input type="text" name="username" id="username" onChange={getData} placeholder='Enter Username : ' className='form-control' />
-                                            </div>
+
+                        <div className="container-fluid w-100">
+                            <div className="m-auto" style={{ width: '75%' }}>
+                                <h5 className='bg-secondary text-center text-light py-2'>Signup Section</h5>
+
+                                <form onSubmit={postdata}>
+                                    <div className="row mb-3">
+                                        <div className=" col-md-6 col-12">
+                                            <input type="text" name='fname' onChange={getdata} placeholder='Enter full name :' className='form-control ' required />
                                         </div>
-                                        <div className="row mb-3">
-                                            <div className="col-md-6 col-12">
-                                                <input type="email" name="email" id="email" onChange={getData} placeholder='Enter Email Address : ' className='form-control' />
-                                            </div>
-                                            <div className="col-md-6 col-12">
-                                                <input type="text" name="phone" id="phone" onChange={getData} placeholder='Enter Phone Number: ' className='form-control' />
-                                            </div>
+                                        <div className="col-md-6 col-12 ">
+                                            <input type="text" name='username' onChange={getdata} placeholder='Enter username :' className='form-control ' required />
                                         </div>
-                                        <div className="row mb-3">
-                                            <div className="col-md-6 col-12">
-                                                <input type="password" name="password" id="password" onChange={getData} placeholder='Enter Password : ' className='form-control' />
-                                            </div>
-                                            <div className="col-md-6 col-12">
-                                                <input type="password" name="cpassword" id="cpassword" onChange={getData} placeholder='Confirm Password : ' className='form-control' />
-                                            </div>
+
+                                    </div>
+                                    <div className="row mb-3">
+                                        <div className=" col-md-6 col-12">
+                                            <input type="text" name='phone' onChange={getdata} placeholder='Enter phone  number :' className='form-control ' required />
                                         </div>
-                                        <div className="mb-3">
-                                            <button className='btn btn-secondary w-100 btn-lg' type='submit'>Signup</button>
+                                        <div className="col-md-6 col-12 ">
+                                            <input type="text" name='email' onChange={getdata} placeholder='Enter email address :' className='form-control ' required />
                                         </div>
-                                    </form>
-                                    <Link className='text-dark' to="/login">Already User?Login to Your Account</Link>
+
+                                    </div>
+                                    <div className="row mb-3">
+                                        <div className=" col-md-6 col-12">
+                                            <input type="text" name='password' onChange={getdata} placeholder='Enter password :' className='form-control ' required />
+                                        </div>
+                                        <div className="col-md-6 col-12 ">
+                                            <input type="text" name='cpassword' onChange={getdata} placeholder='Enter confirm password :' className='form-control ' required />
+                                        </div>
+
+                                    </div>
+
+                                    <div className="mb-3">
+                                        <button type='submit' className='btn btn-lg bg-secondary w-100 text-light' >Signup</button>
+                                    </div>
+                                </form>
+                                <div className="mb-3 text-center">
+
+                                    <Link to='/login' className='text-dark'>already user? Login to your account</Link>
                                 </div>
                             </div>
+
                         </div>
                     </div>
                 </div>
