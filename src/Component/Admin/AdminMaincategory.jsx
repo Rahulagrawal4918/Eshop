@@ -9,6 +9,7 @@ import { getMaincategory, deleteMaincategory } from "../../Store/ActionCreators/
 
 export default function AdminMaincategory() {
     var maincategory = useSelector((state) => state.MaincategoryStateData)
+    console.log(maincategory);
     var dispatch = useDispatch()
     var navigate = useNavigate()
     var columns = [
