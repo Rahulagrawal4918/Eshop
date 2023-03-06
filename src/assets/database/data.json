@@ -1,24 +1,32 @@
 {
   "maincategory": [
     {
-      "name": "rahujkljjhk",
-      "id": 2
-    },
-    {
-      "name": "rszdfxghcnbm,",
-      "id": 3
-    },
-    {
-      "name": "zrszdfghcvjbk,.",
-      "id": 4
+      "name": "male",
+      "id": 1
     },
     {
       "name": "female",
+      "id": 2
+    },
+    {
+      "name": "kids",
+      "id": 3
+    },
+    {
+      "name": "men",
+      "id": 4
+    },
+    {
+      "name": "women",
       "id": 5
     },
     {
-      "name": "Male",
+      "name": "boys",
       "id": 6
+    },
+    {
+      "name": "Rahul agrawal ",
+      "id": 7
     }
   ],
   "subcategory": [

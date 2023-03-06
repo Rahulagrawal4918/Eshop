@@ -10,8 +10,9 @@ export function MaincategoryReducer(state = [], action) {
             var newState = state.filter(item=>item.id!==action.data.id)
             return newState
         case UPDATE_MAINCATEGORY_RED:
-            var index = state.findIndex((item)=>item.id===Number(action.data.id))
-            state[index].name = action.data.name
+             var index = state.findIndex((item)=>item.id ===Number(action.data.id))
+             state[index].name = action.data.name
+             console.log('reducer', state);
             return state
         default:
             return state

@@ -17,6 +17,7 @@ import SingleProductPage from './SingleProductPage'
 import AdminHome from './Admin/AdminHome'
 
 import AdminAddMaincategory from './Admin/AdminAddMaincategory'
+import AdminUpdateMaincategory from './Admin/AdminUpdateMaincategory'
 import AdminMaincategory from './Admin/AdminMaincategory'
 
 
@@ -44,7 +45,8 @@ export default function App() {
           <Route path='/admin-home' element={<AdminHome/>} />
           <Route path='/admin-maincategory' element={<AdminMaincategory/>} />
           <Route path='/admin-add-maincategory' element={<AdminAddMaincategory/>} />
-         
+          <Route path='/admin-update-maincategory/:id' element={<AdminUpdateMaincategory/>}/>
+
         </Routes>
         <Footer />
       </BrowserRouter>

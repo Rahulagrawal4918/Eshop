@@ -36,5 +36,8 @@ export async function deleteMaincategoryAPI(data){
         }
     })
     return await response.json()
-} 
+}
+
+
+
 
