@@ -15,13 +15,16 @@ export default function AdminAddMaincategory() {
     function postData(e){
         e.preventDefault()
         var item = maincategory.find((item)=>item.name===name)
+        if(name!==''){
         if(item)
         alert("Maincategory Name is Already Exist")
         else{
             dispatch(addMaincategory({name:name}))
             navigate("/admin-maincategory")
         }
-    }
+    }else{
+        alert('Please Enter a Valid Maincategory Name !!!' )
+    }}
     useEffect(()=>{
         dispatch(getMaincategory())
     },[])

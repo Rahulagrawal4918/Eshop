@@ -3,13 +3,13 @@ import { Link, useNavigate } from 'react-router-dom'
 import { DataGrid } from '@mui/x-data-grid';
 import { useSelector, useDispatch } from 'react-redux';
 import Button from '@mui/material/Button';
-
 import LeftNav from './LeftNav'
 import { getMaincategory, deleteMaincategory } from "../../Store/ActionCreators/MaincategoryActionCreators"
 
+
 export default function AdminMaincategory() {
     var maincategory = useSelector((state) => state.MaincategoryStateData)
-    console.log(maincategory);
+    // console.log(maincategory);
     var dispatch = useDispatch()
     var navigate = useNavigate()
     var columns = [

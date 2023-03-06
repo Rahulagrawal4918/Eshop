@@ -10,7 +10,7 @@ export function getMaincategory(){
     return{
         type:GET_MAINCATEGORY
     }
-}
+}     
 export function updateMaincategory(data){
     return{
         type:UPDATE_MAINCATEGORY,

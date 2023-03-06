@@ -1,10 +1,6 @@
 {
   "maincategory": [
     {
-      "id": 1,
-      "name": "Male"
-    },
-    {
       "name": "rahujkljjhk",
       "id": 2
     },
@@ -17,8 +13,12 @@
       "id": 4
     },
     {
-      "name": "",
+      "name": "female",
       "id": 5
+    },
+    {
+      "name": "Male",
+      "id": 6
     }
   ],
   "subcategory": [
