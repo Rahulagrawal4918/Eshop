@@ -25,6 +25,10 @@ import AdminUpdateSubcategory from './Admin/AdminUpdateSubcategory'
 import AdminSubcategory from './Admin/AdminSubcategory'
 
 
+import AdminAddBrand from './Admin/AdminAddBrand'
+import AdminUpdateBrand from './Admin/AdminUpdateBrand'
+import AdminBrand from './Admin/AdminBrand'
+
 
 
 
@@ -57,6 +61,11 @@ export default function App() {
           <Route path='/admin-subcategory' element={<AdminSubcategory />} />
           <Route path='/admin-add-subcategory' element={<AdminAddSubcategory />} />
           <Route path='/admin-update-subcategory/:id' element={<AdminUpdateSubcategory />} />
+
+          {/* admin subcategory */}
+          <Route path='/admin-brand' element={<AdminBrand/>} />
+          <Route path='/admin-add-brand' element={<AdminAddBrand/>} />
+          <Route path='/admin-update-brand/:id' element={<AdminUpdateBrand/>} />
 
 
         </Routes>

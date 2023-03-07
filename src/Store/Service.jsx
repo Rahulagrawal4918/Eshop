@@ -84,3 +84,48 @@ export async function deleteSubcategoryAPI(data){
 
 
 
+
+
+//services for Brand
+export async function createBrandAPI(data){
+    var response = await fetch("http://localhost:8000/brand",{
+        method:"post",
+        headers:{
+            "content-type":"application/json"
+        },
+        body:JSON.stringify(data)
+    })
+    return await response.json()
+} 
+export async function getBrandAPI(){
+    var response = await fetch("http://localhost:8000/brand",{
+        method:"get",
+        headers:{
+            "content-type":"application/json"
+        }
+    })
+    return await response.json()
+}
+export async function updateBrandAPI(data){
+    var response = await fetch("http://localhost:8000/brand/"+data.id,{
+        method:"put",
+        headers:{
+            "content-type":"application/json"
+        },
+        body:JSON.stringify(data)
+    })
+    return await response.json()
+} 
+export async function deleteBrandAPI(data){
+    var response = await fetch("http://localhost:8000/brand/"+data.id,{
+        method:"delete",
+        headers:{
+            "content-type":"application/json"
+        }
+    })
+    return await response.json()
+}
+
+
+
+
