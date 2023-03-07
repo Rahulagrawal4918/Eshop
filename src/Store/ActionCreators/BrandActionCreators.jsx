@@ -1,4 +1,4 @@
-import { ADD_BRAND, DELETE_BRANDADD_BRAND, GET_BRANDADD_BRAND, UPDATE_BRANDADD_BRAND } from "../Constants";
+import { ADD_BRAND, DELETE_BRAND, GET_BRAND, UPDATE_BRAND } from "../Constants";
 
 export function addBrand(data){
     return{
@@ -8,18 +8,18 @@ export function addBrand(data){
 }
 export function getBrand(){
     return{
-        type:GET_BRANDADD_BRAND
+        type:GET_BRAND
     }
 }     
 export function updateBrand(data){
     return{
-        type:UPDATE_BRANDADD_BRAND,
+        type:UPDATE_BRAND,
         payload:data
     }
 }
 export function deleteBrand(data){
     return{
-        type:DELETE_BRANDADD_BRAND,
+        type:DELETE_BRAND,
         payload:data
     }
 }

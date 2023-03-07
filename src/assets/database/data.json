@@ -57,8 +57,8 @@
   ],
   "brand": [
     {
-      "name": "Adidas",
-      "id": 1
+      "id": 1,
+      "name": "Adidas"
     },
     {
       "id": 2,
@@ -73,12 +73,12 @@
       "id": 4
     },
     {
-      "name": "Gucci",
-      "id": 5
-    },
-    {
       "id": 6,
       "name": "Tommy Hilfiger"
+    },
+    {
+      "name": "Gucci",
+      "id": 7
     }
   ],
   "product": [
