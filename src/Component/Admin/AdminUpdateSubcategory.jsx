@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react'
 import LeftNav from './LeftNav'
 
-import { getMaincategory, updateMaincategory } from "../../Store/ActionCreators/MaincategoryActionCreators"
+import { getSubcategory, updateSubcategory } from "../../Store/ActionCreators/SubcategoryActionCreators"
 import { useNavigate, useParams } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
-export default function AdminAddMaincategory() {
+export default function AdminAddSubcategory() {
     var [name, setname] = useState("")
-    var maincategory = useSelector((state) => state.MaincategoryStateData)
+    var subcategory = useSelector((state) => state.SubcategoryStateData)
 
     var navigate = useNavigate()
     var dispatch = useDispatch()
@@ -16,23 +16,23 @@ export default function AdminAddMaincategory() {
     }
     function postData(e) {
         e.preventDefault()
-        var item = maincategory.find((item) => item.name === name)
+        var item = subcategory.find((item) => item.name === name)
         if (name !== '') {
             if (item)
-                alert("Maincategory Name is Already Exist")
+                alert("Subcategory Name is Already Exist")
             else {
-                dispatch(updateMaincategory({ id: id, name: name }))
-                navigate("/admin-maincategory")
+                dispatch(updateSubcategory({ id: id, name: name }))
+                navigate("/admin-subcategory")
             }
         } else {
-            alert('Please Enter a Valid Maincategory Name !!!')
+            alert('Please Enter a Valid Subcategory Name !!!')
         }
     }
     useEffect(() => {
-        dispatch(getMaincategory())
+        dispatch(getSubcategory())
         
 
-        var item = maincategory.find((item) => item.id === Number(id))
+        var item = subcategory.find((item) => item.id === Number(id))
         setname(item.name)
 
     }, [])
@@ -44,11 +44,11 @@ export default function AdminAddMaincategory() {
                         <LeftNav />
                     </div>
                     <div className="col-lg-10 col-12">
-                        <h5 className='bg-secondary text-center text-light p-1'>Maincategory</h5>
+                        <h5 className='bg-secondary text-center text-light p-1'>Subcategory</h5>
                         <form className='p-3' onSubmit={postData}>
                             <div className="mb-3">
                                 <label htmlFor="name">Name</label>
-                                <input type="text" name="name" id="name" placeholder='Enter Maincategory Name : ' className='form-control' onChange={getData} value={name} />
+                                <input type="text" name="name" id="name" placeholder='Enter Subcategory Name : ' className='form-control' onChange={getData} value={name} />
                             </div>
                             <div className="mb-3">
                                 <button type='submit' className='btn btn-secondary w-100'>Add</button>

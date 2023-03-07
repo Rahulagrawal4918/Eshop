@@ -31,20 +31,28 @@
   ],
   "subcategory": [
     {
-      "name": "Jeans",
-      "id": 1
+      "id": 1,
+      "name": "Jeans"
     },
     {
       "name": "Tshirt",
       "id": 2
     },
     {
-      "name": "Shirt",
-      "id": 3
-    },
-    {
       "id": 4,
       "name": "Trouer"
+    },
+    {
+      "name": "Shirt",
+      "id": 5
+    },
+    {
+      "name": "Shoes",
+      "id": 6
+    },
+    {
+      "name": "Watch",
+      "id": 7
     }
   ],
   "brand": [

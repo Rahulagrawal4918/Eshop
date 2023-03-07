@@ -41,3 +41,46 @@ export async function deleteMaincategoryAPI(data){
 
 
 
+//services for subcategory
+export async function createSubcategoryAPI(data){
+    var response = await fetch("http://localhost:8000/subcategory",{
+        method:"post",
+        headers:{
+            "content-type":"application/json"
+        },
+        body:JSON.stringify(data)
+    })
+    return await response.json()
+} 
+export async function getSubcategoryAPI(){
+    var response = await fetch("http://localhost:8000/subcategory",{
+        method:"get",
+        headers:{
+            "content-type":"application/json"
+        }
+    })
+    return await response.json()
+}
+export async function updateSubcategoryAPI(data){
+    var response = await fetch("http://localhost:8000/subcategory/"+data.id,{
+        method:"put",
+        headers:{
+            "content-type":"application/json"
+        },
+        body:JSON.stringify(data)
+    })
+    return await response.json()
+} 
+export async function deleteSubcategoryAPI(data){
+    var response = await fetch("http://localhost:8000/subcategory/"+data.id,{
+        method:"delete",
+        headers:{
+            "content-type":"application/json"
+        }
+    })
+    return await response.json()
+}
+
+
+
+
