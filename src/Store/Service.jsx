@@ -129,3 +129,47 @@ export async function deleteBrandAPI(data){
 
 
 
+
+//services for Product
+export async function createProductAPI(data){
+    var response = await fetch("http://localhost:8000/brand",{
+        method:"post",
+        headers:{
+            "content-type":"application/json"
+        },
+        body:JSON.stringify(data)
+    })
+    return await response.json()
+} 
+export async function getProductAPI(){
+    var response = await fetch("http://localhost:8000/brand",{
+        method:"get",
+        headers:{
+            "content-type":"application/json"
+        }
+    })
+    return await response.json()
+}
+export async function updateProductAPI(data){
+    var response = await fetch("http://localhost:8000/brand/"+data.id,{
+        method:"put",
+        headers:{
+            "content-type":"application/json"
+        },
+        body:JSON.stringify(data)
+    })
+    return await response.json()
+} 
+export async function deleteProductAPI(data){
+    var response = await fetch("http://localhost:8000/brand/"+data.id,{
+        method:"delete",
+        headers:{
+            "content-type":"application/json"
+        }
+    })
+    return await response.json()
+}
+
+
+
+
