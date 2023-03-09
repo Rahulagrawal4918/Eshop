@@ -1,21 +1,21 @@
 import {takeEvery,put} from "redux-saga/effects"
-import { createProductdAPI, deleteProductdAPI, getProductdAPI, updateProductdAPI } from "../Service"
+import { createProductAPI, deleteProductAPI, getProductAPI, updateProductAPI } from "../Service"
 import {ADD_PRODUCT,ADD_PRODUCT_RED, DELETE_PRODUCT, DELETE_PRODUCT_RED, GET_PRODUCT, GET_PRODUCT_RED, UPDATE_PRODUCT, UPDATE_PRODUCT_RED} from "../Constants"
 
 function* createProductSaga(action){   //executer
-    var response = yield createProductdAPI(action.payload)
+    var response = yield createProductAPI(action.payload)
     yield put({type:ADD_PRODUCT_RED,data:response})
 }
 function* getProductSaga(){   //executer
-    var response = yield getProductdAPI()
+    var response = yield getProductAPI()
     yield put({type:GET_PRODUCT_RED,data:response})
 }
 function* deleteProductSaga(action){   //executer
-    yield deleteProductdAPI(action.payload)
+    yield deleteProductAPI(action.payload)
     yield put({type:DELETE_PRODUCT_RED,data:action.payload})
 }
 function* updateProductSaga(action){   //executer
-    yield updateProductdAPI(action.payload)
+    yield updateProductAPI(action.payload)
     yield put({type:UPDATE_PRODUCT_RED,data:action.payload})
 }
 export function* ProductSaga(){    //watcher
