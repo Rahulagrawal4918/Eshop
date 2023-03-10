@@ -16,15 +16,15 @@ export default function AdminAddProduct() {
         stock: 'in Stock',
         size: '',
         color: '',
-        bp: '',
-        d: '',
-        description: '',
+        baseprice: 0,
+        disscount: 0,
+        description: 'This is sample Product',
         pic1: '',
         pic2: '',
         pic3: '',
         pic4: '',
     })
-    var product = useSelector((state) => state.ProductStateData)
+    // var product = useSelector((state) => state.ProductStateData)
     var maincategory = useSelector((state) => state.MaincategoryStateData)
     var subcategory = useSelector((state) => state.SubcategoryStateData)
     var brand = useSelector((state) => state.BrandStateData)
@@ -41,38 +41,58 @@ export default function AdminAddProduct() {
             }
         })
     }
-    console.log(data);
+    function getFile(e) {
+        // setname(e.target.value)
+        var name = e.target.name
+        var value = e.target.files[0].name
+        setdata((old) => {
+            return {
+                ...old,
+                [name]: value
+            }
+        })
+    }
+    // console.log(data);
     function postData(e) {
         e.preventDefault()
-        alert(
-            `
-            name: ${data.name},
-            maincategory: ${data.maincategory}
-            subcategory: ${data.subcategory}
-            brand: ${data.brand}
-            stock: ${data.stock},
-            size: ${data.size}
-            color: ${data.color}
-            bp: ${data.bp}
-            d: ${data.d}
-            des: ${data.description}
-            pic1: ${data.pic1}
-            pic2: ${data.pic2}
-            pic3: ${data.pic3}
-            pic4: ${data.pic4}
-            `
-        )
-        // var item = brand.find((item) => item.name === name)
-        // if (name !== '') {
-        //     if (item)
-        //         alert("Brand Name is Already Exist")
-        //     else {
-        //         dispatch(addProduct({ name: name }))
-        //         navigate("/admin-brand")
-        //     }
-        // } else {
-        //     alert('Please Enter a Valid Brand Name !!!')
-        // }
+        // var bp = Number(data.baseprice)
+        // var d = Number(data.disscount)
+        // var fp = parseInt(bp - (bp * d / 100))
+      
+
+        var mc = data.maincategory
+        if (mc === '')
+            mc = maincategory[0].name
+        var sc = data.subcategory
+        if (sc === '')
+            sc = subcategory[0].name
+        var br = data.brand
+        if (br === '')
+            br = brand[0].name
+
+        // console.log('price',bp , d , fp);
+        
+        var item = {
+            name: data.name,
+            maincategory: mc,
+            subcategory: sc,
+            brand: br,
+            stock: data.stock,
+            size: data.size,
+            color: data.color,
+            baseprice: Number(data.baseprice),
+            disscount: Number(data.disscount),
+            finalprice: parseInt(data.baseprice - (data.baseprice * data.disscount / 100)),
+            description: data.description,
+            pic1: data.pic1,
+            pic2: data.pic2,
+            pic3: data.pic3,
+            pic4: data.pic4,
+        }
+        dispatch(addProduct(item))
+        navigate("/admin-product")
+        console.log('item price = ' ,item.baseprice ,item.disscount,item.finalprice);
+
     }
     useEffect(() => {
         dispatch(getProduct())
@@ -89,7 +109,7 @@ export default function AdminAddProduct() {
                         <LeftNav />
                     </div>
                     <div className="col-lg-10 col-12">
-                        <h5 className='bg-secondary text-center text-light p-1'>Brand</h5>
+                        <h5 className='bg-secondary text-center text-light p-1'>Product</h5>
                         <form className='p-3' onSubmit={postData}>
                             <div className="mb-3">
                                 <label htmlFor="name">Name</label>
@@ -152,38 +172,38 @@ export default function AdminAddProduct() {
                             <div className="row mb-3">
                                 <div className="col-md-6 col-12">
                                     <label htmlFor="size">Base Price</label>
-                                    <input type="number" name="bp" id="bp" placeholder='Enter Base Price' className='form-control' onChange={getData} />
+                                    <input type="number" name="baseprice" id="bp" placeholder='Enter Base Price' className='form-control' onChange={getData} />
                                 </div>
 
                                 <div className="col-md-6 col-12">
                                     <label htmlFor="color">Disscount</label>
-                                    <input type="number" name="d" id="d" placeholder='Enter Disscount' className='form-control' onChange={getData} />
+                                    <input type="number" name="disscount" id="d" placeholder='Enter Disscount' className='form-control' onChange={getData} />
                                 </div>
                             </div>
                             <div className="mb-3">
                                 <label htmlFor="description">Description</label>
-                                <textarea name="des" id="des" placeholder='Write Description' rows="4" className='form-control'></textarea>
+                                <textarea name="description" id="des" placeholder='Write Description' rows="4" className='form-control' value={data.description} onChange={getData} ></textarea>
                             </div>
                             <div className="row mb-3">
                                 <div className="col-md-6 col-12">
                                     <label htmlFor="size">Pic 1</label>
-                                    <input type="file" name="pic1" id="pic1" className='form-control' onChange={getData} />
+                                    <input type="file" name="pic1" id="pic1" className='form-control' onChange={getFile} />
                                 </div>
 
                                 <div className="col-md-6 col-12">
                                     <label htmlFor="color">Pic 2</label>
-                                    <input type="file" name="pic2" id="pic2" className='form-control' onChange={getData} />
+                                    <input type="file" name="pic2" id="pic2" className='form-control' onChange={getFile} />
                                 </div>
                             </div>
                             <div className="row mb-3">
                                 <div className="col-md-6 col-12">
                                     <label htmlFor="size">Pic3</label>
-                                    <input type="file" name="pic3" id="pic3" className='form-control' onChange={getData} />
+                                    <input type="file" name="pic3" id="pic3" className='form-control' onChange={getFile} />
                                 </div>
 
                                 <div className="col-md-6 col-12">
                                     <label htmlFor="color">Pic4</label>
-                                    <input type="file" name="pic4" id="pic4" className='form-control' onChange={getData} />
+                                    <input type="file" name="pic4" id="pic4" className='form-control' onChange={getFile} />
                                 </div>
                             </div>
                             <div className="mb-3">

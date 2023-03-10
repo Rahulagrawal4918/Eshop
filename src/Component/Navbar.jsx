@@ -16,11 +16,11 @@ export default function Navbar() {
                             <div className="row d-flex">
                                 <div className="col-md pr-4 d-flex topper align-items-center">
                                     <div className="icon mr-2 d-flex justify-content-center align-items-center"><span className="icon-phone2"></span></div>
-                                    <span className="text">+91 9873848046</span>
+                                    <span className="text">+91 7852862759</span>
                                 </div>
                                 <div className="col-md pr-4 d-flex topper align-items-center">
                                     <div className="icon mr-2 d-flex justify-content-center align-items-center"><span className="icon-paper-plane"></span></div>
-                                    <span className="text">vishankchauhan@gmail.com</span>
+                                    <span className="text">Rahulagrawal4918@gmail.com</span>
                                 </div>
                                 <div className="col-md-5 pr-4 d-flex topper align-items-center text-lg-right">
                                     <span className="text">3-5 Business days delivery &amp; Free Returns</span>

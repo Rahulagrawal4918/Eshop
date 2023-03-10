@@ -30,6 +30,7 @@ import AdminUpdateBrand from './Admin/AdminUpdateBrand'
 import AdminBrand from './Admin/AdminBrand'
 import AdminProduct from './Admin/AdminProduct'
 import AdminAddProduct from './Admin/AdminAddProduct'
+import AdminUpdateProduct from './Admin/AdminUpdateProduct'
 
 
 
@@ -73,6 +74,7 @@ export default function App() {
           {/* admin product */}
           <Route path='/admin-product' element={<AdminProduct />} />
           <Route path='/admin-add-product' element={<AdminAddProduct />} />
+          <Route path='/admin-update-product/:id' element={<AdminUpdateProduct/>} />
         </Routes>
         <Footer />
       </BrowserRouter>

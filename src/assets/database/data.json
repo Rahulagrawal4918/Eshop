@@ -1,64 +1,52 @@
 {
   "maincategory": [
     {
-      "name": "male",
-      "id": 1
+      "id": 1,
+      "name": "Male"
     },
     {
-      "name": "female",
-      "id": 2
+      "id": 2,
+      "name": "Female"
     },
     {
-      "name": "kids",
-      "id": 3
+      "id": 3,
+      "name": "Kids"
     },
     {
-      "name": "men",
+      "name": "Both Men and Women",
       "id": 4
-    },
-    {
-      "name": "women",
-      "id": 5
-    },
-    {
-      "name": "boys",
-      "id": 6
-    },
-    {
-      "name": "Rahul agrawal ",
-      "id": 7
     }
   ],
   "subcategory": [
     {
-      "id": 1,
-      "name": "Jeans"
+      "name": "Jeans",
+      "id": 1
     },
     {
       "name": "Tshirt",
       "id": 2
     },
     {
+      "name": "Shirt",
+      "id": 3
+    },
+    {
       "id": 4,
       "name": "Trouer"
     },
     {
-      "name": "Shirt",
+      "name": "Shoes",
       "id": 5
     },
     {
-      "name": "Shoes",
+      "name": "Heals",
       "id": 6
-    },
-    {
-      "name": "Watch",
-      "id": 7
     }
   ],
   "brand": [
     {
-      "id": 1,
-      "name": "Adidas"
+      "name": "Adidas",
+      "id": 1
     },
     {
       "id": 2,
@@ -73,16 +61,20 @@
       "id": 4
     },
     {
+      "name": "Gucci",
+      "id": 5
+    },
+    {
       "id": 6,
       "name": "Tommy Hilfiger"
     },
     {
-      "name": "Gucci",
+      "name": "Nike",
       "id": 7
     },
     {
-      "id": 8,
-      "name": "compus"
+      "name": "Bata",
+      "id": 8
     }
   ],
   "product": [
@@ -92,12 +84,13 @@
       "maincategory": "Kids",
       "subcategory": "Jeans",
       "brand": "Mufti",
-      "color": "Blue",
-      "size": "26",
-      "baseprice": 4500,
-      "discount": 45,
-      "finalprice": 2475,
       "stock": "Out Of Stock",
+      "size": "26",
+      "color": "Blue",
+      "baseprice": 4500,
+      "disscount": 45,
+      "finalprice": 2475,
+      "description": "this is sample product",
       "pic1": "p56.jpg",
       "pic2": "p57.jpg",
       "pic3": "p64.jpg",
@@ -109,13 +102,13 @@
       "maincategory": "Male",
       "subcategory": "Jeans",
       "brand": "Mufti",
-      "color": "Black",
-      "size": "36",
-      "baseprice": 4560,
-      "discount": 45,
-      "finalprice": 2508,
       "stock": "In Stock",
-      "description": "",
+      "size": "36",
+      "color": "Black",
+      "baseprice": 4560,
+      "disscount": 41,
+      "finalprice": 2690,
+      "description": "this is sample product\n",
       "pic1": "p5.jpg",
       "pic2": "p2.jpg",
       "pic3": "p1.jpg",
@@ -130,7 +123,7 @@
       "color": "Blue",
       "size": "36",
       "baseprice": 7889,
-      "discount": 55,
+      "disscount": 55,
       "finalprice": 3550,
       "stock": "In Stock",
       "description": "This is Sample Product",
@@ -145,12 +138,12 @@
       "maincategory": "Female",
       "subcategory": "Tshirt",
       "brand": "Gucci",
-      "color": "White",
-      "size": "MD",
-      "baseprice": 8500,
-      "discount": 25,
-      "finalprice": 6375,
       "stock": "In Stock",
+      "size": "MD",
+      "color": "White",
+      "baseprice": 8500,
+      "disscount": 25,
+      "finalprice": 6375,
       "description": "This is Sample Product",
       "pic1": "p19.jpg",
       "pic2": "p23.jpg",
@@ -166,7 +159,7 @@
       "color": "Black",
       "size": "36",
       "baseprice": 7890,
-      "discount": 45,
+      "disscount": 45,
       "finalprice": 4339,
       "stock": "In Stock",
       "description": "This is Sample Product",
@@ -183,7 +176,7 @@
       "color": "Blue",
       "size": "38",
       "baseprice": 4560,
-      "discount": 45,
+      "disscount": 45,
       "finalprice": 2508,
       "stock": "In Stock",
       "description": "This is Sample Product",
@@ -201,7 +194,7 @@
       "color": "Black",
       "size": "LG",
       "baseprice": 7800,
-      "discount": 80,
+      "disscount": 80,
       "finalprice": 1560,
       "stock": "In Stock",
       "description": "This is Sample Product",
@@ -219,7 +212,7 @@
       "color": "White",
       "size": "SM",
       "baseprice": 4560,
-      "discount": 60,
+      "disscount": 60,
       "finalprice": 1824,
       "stock": "In Stock",
       "description": "This is Sample Product",
@@ -237,7 +230,7 @@
       "color": "Blue",
       "size": "SM",
       "baseprice": 1544,
-      "discount": 44,
+      "disscount": 44,
       "finalprice": 864,
       "stock": "In Stock",
       "description": "This is Sample Product",
@@ -255,7 +248,7 @@
       "color": "Black",
       "size": "30",
       "baseprice": 4844,
-      "discount": 44,
+      "disscount": 44,
       "finalprice": 2712,
       "stock": "In Stock",
       "description": "This is Sample Product",
@@ -273,7 +266,7 @@
       "color": "Blue",
       "size": "32",
       "baseprice": 9800,
-      "discount": 55,
+      "disscount": 55,
       "finalprice": 4410,
       "stock": "In Stock",
       "description": "This is Sample Product",
@@ -291,7 +284,7 @@
       "color": "White",
       "size": "LG",
       "baseprice": 9800,
-      "discount": 85,
+      "disscount": 85,
       "finalprice": 1470,
       "stock": "In Stock",
       "description": "This is Sample Product",
@@ -302,8 +295,76 @@
       "id": 11
     },
     {
-      "name": "kids",
-      "id": 12
+      "id": 12,
+      "name": "men casual shoes",
+      "maincategory": "Male",
+      "subcategory": "Shoes",
+      "brand": "Nike",
+      "stock": "in Stock",
+      "size": "7,8,9,10",
+      "color": "black , white ",
+      "baseprice": 2480,
+      "disscount": 67,
+      "finalprice": 818,
+      "description": "latest casual shoes for men",
+      "pic1": "banner4.jpg",
+      "pic2": "p11.jpg",
+      "pic3": "product22.jpg",
+      "pic4": "product23.jpg"
+    },
+    {
+      "name": "Solid white t-shirt",
+      "maincategory": "Male",
+      "subcategory": "Tshirt",
+      "brand": "Zara",
+      "stock": "in Stock",
+      "size": "Lg",
+      "color": "White",
+      "baseprice": 1054,
+      "disscount": 50,
+      "finalprice": 527,
+      "description": "latest Solid white Tshirt for men and women both",
+      "pic1": "p24.jpg",
+      "pic2": "p21.jpg",
+      "pic3": "p3.jpg",
+      "pic4": "p15.jpg",
+      "id": 13
+    },
+    {
+      "name": "High Heels",
+      "maincategory": "Female",
+      "subcategory": "Heals",
+      "brand": "Bata",
+      "stock": "in Stock",
+      "size": "6",
+      "color": "Red",
+      "baseprice": 5684,
+      "disscount": 32,
+      "finalprice": 3865,
+      "description": "Latest designed Bata High Heels for Women",
+      "pic1": "product9.jpg",
+      "pic2": "product12.jpg",
+      "pic3": "product 10.jpg",
+      "pic4": "product11.jpg",
+      "id": 14
+    },
+    {
+      "name": "Black Tshirt and Navy Jeans ",
+      "maincategory": "Kids",
+      "subcategory": "Tshirt",
+      "brand": "Tommy Hilfiger",
+      "stock": "in Stock",
+      "size": "32",
+      "color": "Black and Navy",
+      "baseprice": 2359,
+      "disscount": 52,
+      "finalprice": 1132,
+      "description": "Jeans and Teshirt Set for Girls",
+      "pic1": "p64.jpg",
+      "pic2": "p62.jpg",
+      "pic3": "p66.jpg",
+      "pic4": "p65.jpg",
+      "id": 15
     }
   ],
   "user": [
@@ -485,7 +546,7 @@
       "email": "vishankchauhan@gmail.com",
       "phone": "09873848046",
       "subject": "Test",
-      "message": "dsdsdddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd",
+      "message": "dsdsdddd",
       "status": "Done",
       "time": "2023-01-19T09:59:46.849Z",
       "id": 1
@@ -495,7 +556,7 @@
       "email": "vishankchauhan@gmail.com",
       "phone": "09873848046",
       "subject": "Test",
-      "message": "dsdsdddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd",
+      "message": "hgfhghf",
       "status": "Done",
       "time": "2023-01-19T09:59:48.790Z",
       "id": 2
@@ -505,7 +566,7 @@
       "email": "vishankchauhan@gmail.com",
       "phone": "09873848046",
       "subject": "Test",
-      "message": "dsdsdddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd",
+      "message": "hgfhghf",
       "status": "Done",
       "time": "2023-01-19T09:59:49.531Z",
       "id": 3
@@ -515,7 +576,7 @@
       "email": "vishankchauhan@gmail.com",
       "phone": "09873848046",
       "subject": "Test",
-      "message": "dsdsdddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd",
+      "message": "hgfhghf",
       "status": "Done",
       "time": "2023-01-19T09:59:49.691Z",
       "id": 4
@@ -525,7 +586,7 @@
       "email": "vishankchauhan@gmail.com",
       "phone": "09873848046",
       "subject": "Test",
-      "message": "dsdsdddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd",
+      "message": "hgfhghf",
       "status": "Active",
       "time": "2023-01-19T09:59:49.811Z",
       "id": 5
@@ -535,7 +596,7 @@
       "email": "vishankchauhan@gmail.com",
       "phone": "09873848046",
       "subject": "Test",
-      "message": "dsdsdddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd",
+      "message": "hgfhghf",
       "status": "Active",
       "time": "2023-01-19T09:59:49.963Z",
       "id": 6
@@ -545,7 +606,7 @@
       "email": "vishankchauhan@gmail.com",
       "phone": "09873848046",
       "subject": "Test",
-      "message": "dsdsdddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd",
+      "message": "hgfhghf",
       "status": "Active",
       "time": "2023-01-19T09:59:50.068Z",
       "id": 7

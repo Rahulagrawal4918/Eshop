@@ -13,8 +13,46 @@ export default function AdminProduct() {
     var dispatch = useDispatch()
     var navigate = useNavigate()
     var columns = [
-        { field: 'id', headerName: 'ID', width: 70 },
-        { field: 'name', headerName: 'Name', width: 130 },
+        { field: 'id', headerName: 'ID', width: 50 },
+        { field: 'name', headerName: 'Name', width: 200 },
+        { field: 'maincategory', headerName: 'Maincategory', width: 100 },
+        { field: 'subcategory', headerName: 'Subcategory', width: 100 },
+        { field: 'brand', headerName: 'Brand', width: 100 },
+        { field: 'size', headerName: 'size', width: 50 },
+        { field: 'color', headerName: 'Color', width: 80 },
+        { field: 'stock', headerName: 'Stock', width: 110 },
+        {
+            field: 'baseprice', headerName: 'Baseprice', width: 80, renderCell: ({ row }) =>
+                <p>&#8377; {row.baseprice}</p>
+        },
+        {
+            field: 'disscount', headerName: 'Disscount', width: 80, renderCell: ({ row }) =>
+                <p>{row.disscount}%</p>
+        },
+        { field: 'finalprice', headerName: 'Finalprice', width: 80, renderCell: ({ row }) =>
+        <p>&#8377; {row.finalprice}</p>},
+        { field: 'description', headerName: 'Description', width: 150 },
+        {
+            field: 'pic1', headerName: 'Pic1', width: 120, renderCell: ({ row }) =>
+                <img src={`/assets/productimages/${row.pic1}`} height='40px' width='100%'
+                    className='rounded' alt='pic1' />
+        },
+        {
+            field: 'pic2', headerName: 'Pic2', width: 120, renderCell: ({ row }) =>
+                <img src={`/assets/productimages/${row.pic2}`} height='40px' width='100%'
+                    className='rounded' alt='pic1' />
+        },
+        {
+            field: 'pic3', headerName: 'Pic3', width: 120, renderCell: ({ row }) =>
+                <img src={`/assets/productimages/${row.pic3}`} height='40px' width='100%'
+                    className='rounded' alt='pic1' />
+        },
+        {
+            field: 'pic4', headerName: 'Pic4', width: 120, renderCell: ({ row }) =>
+                <img src={`/assets/productimages/${row.pic4}`} height='40px' width='100%'
+                    className='rounded' alt='pic1' />
+        },
+
         {
             field: "edit",
             headerName: "Edit",
@@ -47,11 +85,11 @@ export default function AdminProduct() {
     for (let item of product) {
         rows.push(item)
     }
-    function getAPIData(){
+    function getAPIData() {
         dispatch(getProduct())
     }
     useEffect(() => {
-       getAPIData()
+        getAPIData()
     }, [])
     return (
         <>

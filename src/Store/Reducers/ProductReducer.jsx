@@ -13,6 +13,8 @@ export function ProductReducer(state = [], action) {
              var index = state.findIndex((item)=>item.id ===Number(action.data.id))
              state[index].name = action.data.name
             //  console.log('reducer', state);
+           
+            return state
             return state
         default:
             return state

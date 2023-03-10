@@ -16,7 +16,7 @@ export default function Footer() {
           <div className="row mb-1">
             <div className="col-lg-2 col-md-6">
               <div className="ftco-footer-widget mb-4">
-                <h2 className="ftco-heading-2">Minishop</h2>
+                <h2 className="ftco-heading-2">Eshopper</h2>
                 <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia.</p>
                 {/* <ul className="ftco-footer-social list-unstyled float-md-left float-lft mt-5">
                   <li className="ftco-animate"><Link to="#"><span className="icon-twitter"></span></Link></li>
@@ -59,8 +59,8 @@ export default function Footer() {
                 <div className="block-23 mb-3">
                   <ul>
                     <li><span className="icon icon-map-marker"></span><span className="text">A-43, Ducat Noida, Sector 16 , Noida,201301,UP, India</span></li>
-                    <li><Link to="#"><span className="icon icon-phone"></span><span className="text">9873848046</span></Link></li>
-                    <li><Link to="#"><span className="icon icon-envelope"></span><span className="text"> vishankchauhan@gmail.com</span></Link></li>
+                    <li><Link to="#"><span className="icon icon-phone"></span><span className="text">7852862759</span></Link></li>
+                    <li><Link to="#"><span className="icon icon-envelope"></span><span className="text"> rahulagrawal4918@gmail.com</span></Link></li>
                   </ul>
                 </div>
               </div>
