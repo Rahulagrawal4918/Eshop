@@ -43,6 +43,7 @@ export default function Navbar() {
                             <li className="nav-item"><Link to="/about" className="nav-link">About</Link></li>
                             <li className="nav-item"><Link to="/shop/All/" className="nav-link">Shop</Link></li>
                             <li className="nav-item"><Link to="/contact" className="nav-link">Contact</Link></li>
+                            <li className="nav-item"><Link to="/admin-home" className="nav-link">Admin</Link></li>
                             <li className="nav-item cta cta-colored"><Link to="/cart" className="nav-link"><span className="icon-shopping_cart"></span>[0]</Link></li>
                             {
                                 localStorage.getItem("login") ?

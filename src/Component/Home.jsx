@@ -1,4 +1,4 @@
-import { width } from '@mui/system'
+
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
@@ -140,7 +140,7 @@ export default function Home() {
               product.reverse().slice(0, 8).map((item, index) => {
                 return <div key={index} className="col-sm-12 col-md-6 col-lg-3 ftco-animate d-flex">
                   <div className="product d-flex flex-column">
-                    <a href="#" className="img-prod"><img className="img-fluid" src={`/assets/productimages/${item.pic1}`} style={{ height: '250px', width: '100%' }} alt="Colorlib Template" />
+                    <a target='_blank' href={`/assets/productimages/${item.pic1}`} className="img-prod"><img className="img-fluid" src={`/assets/productimages/${item.pic1}`} style={{ height: '250px', width: '100%' }} alt="" />
                       <span className="status">{item.disscount}% off</span>
                       <div className="overlay"></div>
                     </a>
@@ -180,7 +180,7 @@ export default function Home() {
                 <div className="text text-center text-white px-2">
 
                   <h2>Men's Collection</h2>
-                  <p><a href="#" className="btn btn-black px-3 py-2">Shop now</a></p>
+                  <p><a href="/shop/Male" className="btn btn-black px-3 py-2">Shop now</a></p>
                 </div>
               </div>
             </div>
@@ -191,7 +191,7 @@ export default function Home() {
                     <div className="col-md-7 d-flex align-items-center">
                       <div className="text text-white px-5">
                         <h2>Women's Collection</h2>
-                        <p><a href="#" className="btn btn-black px-3 py-2">Shop now</a></p>
+                        <p><a href="/shop/Female" className="btn btn-black px-3 py-2">Shop now</a></p>
                       </div>
                     </div>
                   </div>
@@ -203,7 +203,7 @@ export default function Home() {
                         <div className="text text-center px-5">
                           <span className="subheading">Sale</span>
                           <h2>Extra 50% Off</h2>
-                          <p><a href="#" className="btn btn-black px-3 py-2">Shop now</a></p>
+                          <p><a href="/shop/All" className="btn btn-black px-3 py-2">Shop now</a></p>
                         </div>
                       </div>
                     </div>
@@ -211,7 +211,7 @@ export default function Home() {
                       <div className="choose-wrap wrap img align-self-stretch d-flex align-items-center" style={{ backgroundImage: "url('/assets/images/p67.jpg')" }}>
                         <div className="text text-center text-white mt-5 px-5">
                           <h2>Kids's Collection</h2>
-                          <p><a href="#" className="btn btn-black px-3 py-2">Shop now</a></p>
+                          <p><a href="/shop/Kids" className="btn btn-black px-3 py-2">Shop now</a></p>
                         </div>
                       </div>
                     </div>

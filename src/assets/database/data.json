@@ -11,10 +11,6 @@
     {
       "id": 3,
       "name": "Kids"
-    },
-    {
-      "name": "Both Men and Women",
-      "id": 4
     }
   ],
   "subcategory": [
@@ -29,10 +25,6 @@
     {
       "name": "Shirt",
       "id": 3
-    },
-    {
-      "id": 4,
-      "name": "Trouer"
     },
     {
       "name": "Shoes",

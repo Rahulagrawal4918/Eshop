@@ -46,7 +46,7 @@ export default function Admin() {
 
 
                                     <div className="admin-table ">
-                                        <Link to="/" className='btn w-100 text-light bg-secondary mt-2'>Update</Link>
+                                        <Link to="/update-profile" className='btn w-100 text-light bg-secondary mt-2'>Update</Link>
                                     </div>
                                 </div>
                             </div>
