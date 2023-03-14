@@ -21,7 +21,7 @@ export default function Shop() {
 
 
     var product = useSelector((state) => state.ProductStateData)
-    product.reverse()
+    product.sort((x, y) => y.id - x.id)
     var maincategory = useSelector((state) => state.MaincategoryStateData)
     var subcategory = useSelector((state) => state.SubcategoryStateData)
     var brand = useSelector((state) => state.BrandStateData)
@@ -140,14 +140,14 @@ export default function Shop() {
                                                 </a>
                                                 <div className="text py-3 pb-4 px-3">
 
-                                                    <h3><a href="#">{item.name}</a></h3>
-                                                    <p>{item.description}</p>
+                                                    <h3><a href="/single-product">{item.name}</a></h3>
+                                                    <p>{`${item.description.slice(0, 20)}...`}</p>
                                                     <div className="pricing">
                                                         <p className="price"><span className="mr-2 price-dc">&#8377;{item.baseprice}</span><span className="price-sale">&#8377;{item.finalprice}</span></p>
                                                     </div>
                                                     <p className="bottom-area d-flex px-3">
-                                                        <a href="#" className="add-to-cart text-center py-2 mr-1"><span>Add to cart <i className="ion-ios-add ml-1"></i></span></a>
-                                                        <a href="#" className="buy-now text-center py-2">Buy now<span><i className="ion-ios-cart ml-1"></i></span></a>
+                                                        <Link to={`/single-product/${item.id}`} className="add-to-cart text-center py-2 mr-1"><span>Add to cart <i className="ion-ios-add ml-1"></i></span></Link>
+                                                        {/* <a href="#" className="buy-now text-center py-2">Buy now<span><i className="ion-ios-cart ml-1"></i></span></a> */}
                                                     </p>
                                                 </div>
                                             </div>
