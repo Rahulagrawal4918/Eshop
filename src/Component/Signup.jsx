@@ -1,15 +1,29 @@
-import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
+import React, { useEffect, useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { Link, useNavigate } from 'react-router-dom'
+import { addUser, getUser } from '../Store/ActionCreators/UserActionCreators'
 
 export default function Signup() {
+    var navigate = useNavigate()
+    var dispatch = useDispatch()
+    var user = useSelector((state) => state.UserStateData)
     var [data, setdata] = useState({
-        fname: "",
+        name: "",
         username: "",
         phone: "",
         email: "",
         password: "",
-        cpassword: ""
+        cpassword: "",
+        addressline1: "",
+        addressline2: "",
+        addressline3: "",
+        pin: "",
+        city: "",
+        state: "",
+        pic: "",
+        role: "user"
     })
+
     function getdata(e) {
         var name = e.target.name
         var value = e.target.value
@@ -24,20 +38,40 @@ export default function Signup() {
     function postdata(e) {
         e.preventDefault()
         if (data.password === data.cpassword) {
-            alert(`
-        full name   :  ${data.fname}
-        username    :  ${data.username}
-        phone       :  ${data.phone}
-        email       :  ${data.email}
-        password    :  ${data.password}
-        cpassword   :  ${data.cpassword}
-        `)
+            var alreadyAC = user.find((item) => item.username === data.username)
+            if (alreadyAC)
+                alert('User Name Already Taken!!! ')
+            else {
+                var userData = {
+                    name: data.name,
+                    username: data.username,
+                    phone: data.phone,
+                    email: data.email,
+                    password: data.password,
+                    addressline1: data.addressline1,
+                    addressline2: data.addressline2,
+                    addressline3: data.addressline2,
+                    pin: data.pin,
+                    city: data.city,
+                    state: data.state,
+                    pic: data.pic,
+                    role: data.role
+                }
+                dispatch(addUser(userData))
+                navigate('/login')
+            }
+
+
         }
-        else {
+        else
             alert("password and confirm password doesn't matched ")
-        }
+
     }
 
+
+    useEffect(() => {
+        dispatch(getUser())
+    }, [])
 
     return (
         <>
@@ -52,7 +86,7 @@ export default function Signup() {
                                 <form onSubmit={postdata}>
                                     <div className="row mb-3">
                                         <div className=" col-md-6 col-12">
-                                            <input type="text" name='fname' onChange={getdata} placeholder='Enter full name :' className='form-control ' required />
+                                            <input type="text" name='name' onChange={getdata} placeholder='Enter full name :' className='form-control ' required />
                                         </div>
                                         <div className="col-md-6 col-12 ">
                                             <input type="text" name='username' onChange={getdata} placeholder='Enter username :' className='form-control ' required />
@@ -70,7 +104,7 @@ export default function Signup() {
                                     </div>
                                     <div className="row mb-3">
                                         <div className=" col-md-6 col-12">
-                                            <input type="text" name='password' onChange={getdata} placeholder='Enter password :' className='form-control ' required />
+                                            <input type="text" name='password' onChange={getdata} placeholder='Enter password :' className='form-control ' minLength={8} maxLength={25} required />
                                         </div>
                                         <div className="col-md-6 col-12 ">
                                             <input type="text" name='cpassword' onChange={getdata} placeholder='Enter confirm password :' className='form-control ' required />

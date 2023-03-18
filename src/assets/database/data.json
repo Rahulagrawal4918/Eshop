@@ -394,6 +394,62 @@
       "state": "",
       "pic": "p1.jpg",
       "role": "Admin"
+    },
+    {
+      "name": "",
+      "username": "rahul",
+      "phone": "07852862759",
+      "email": "rahulgupata4918@gmail.com",
+      "password": "123456",
+      "id": 3
+    },
+    {
+      "name": "",
+      "username": "rahul1",
+      "phone": "07852862759",
+      "email": "rahulgupata4918@gmail.com",
+      "password": "123456",
+      "addressline1": "",
+      "addressline2": "",
+      "addressline3": "",
+      "pin": "",
+      "city": "",
+      "state": "",
+      "pic": "",
+      "role": "Admin",
+      "id": 4
+    },
+    {
+      "name": "Rahul",
+      "username": "rahul_agrawal7773",
+      "phone": "07852862759",
+      "email": "rahulgupata4918@gmail.com",
+      "password": "123",
+      "addressline1": "",
+      "addressline2": "",
+      "addressline3": "",
+      "pin": "",
+      "city": "",
+      "state": "",
+      "pic": "",
+      "role": "Admin",
+      "id": 5
+    },
+    {
+      "name": "123",
+      "username": "123",
+      "phone": "123",
+      "email": "rahulgupata4918@gmail.com",
+      "password": "123456789",
+      "addressline1": "",
+      "addressline2": "",
+      "addressline3": "",
+      "pin": "",
+      "city": "",
+      "state": "",
+      "pic": "",
+      "role": "Admin",
+      "id": 6
     }
   ],
   "cart": [

@@ -29,10 +29,10 @@ export default function Footer() {
               <div className="ftco-footer-widget mb-4 ml-md-5">
                 <h2 className="ftco-heading-2">Menu</h2>
                 <ul className="list-unstyled">
-                  <li><Link to="#" className="py-2 d-block">Shop</Link></li>
-                  <li><Link to="#" className="py-2 d-block">About</Link></li>
+                  <li><Link to="shop/All" className="py-2 d-block">Shop</Link></li>
+                  <li><Link to="about" className="py-2 d-block">About</Link></li>
                   <li><Link to="#" className="py-2 d-block">Journal</Link></li>
-                  <li><Link to="#" className="py-2 d-block">Contact Us</Link></li>
+                  <li><Link to="/contact" className="py-2 d-block">Contact Us</Link></li>
                 </ul>
               </div>
             </div>
@@ -48,7 +48,7 @@ export default function Footer() {
                   </ul>
                   <ul className="list-unstyled">
                     <li><Link to="#" className="py-2 d-block">FAQs</Link></li>
-                    <li><Link to="#" className="py-2 d-block">Contact</Link></li>
+                    <li><Link to="/contact" className="py-2 d-block">Contact</Link></li>
                   </ul>
                 </div>
               </div>
