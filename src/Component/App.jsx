@@ -31,6 +31,7 @@ import AdminBrand from './Admin/AdminBrand'
 import AdminProduct from './Admin/AdminProduct'
 import AdminAddProduct from './Admin/AdminAddProduct'
 import AdminUpdateProduct from './Admin/AdminUpdateProduct'
+import Profile from './Profile'
 
 
 
@@ -51,6 +52,7 @@ export default function App() {
           <Route path='/single-product/:id' element={<SingleProductPage />} />
           <Route path='/login' element={<Login />} />
           <Route path='/signup' element={<Signup />} />
+          <Route path='/profile' element={<Profile />} />
 
 
           <Route path='/admin-home' element={<AdminHome />} />

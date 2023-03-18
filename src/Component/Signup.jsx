@@ -71,6 +71,7 @@ export default function Signup() {
 
     useEffect(() => {
         dispatch(getUser())
+     
     }, [])
 
     return (

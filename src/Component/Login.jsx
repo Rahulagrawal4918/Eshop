@@ -1,11 +1,20 @@
-import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
+import React, { useEffect, useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { Link, useNavigate } from 'react-router-dom'
+import { getUser } from '../Store/ActionCreators/UserActionCreators'
+
 
 export default function Login() {
+    var user = useSelector((state) => state.UserStateData)
     var [data, setdata] = useState({
         username: "",
         password: ""
     })
+    var navigate = useNavigate()
+    var dispatch = useDispatch()
+    
+
+
     function getdata(e) {
         var name = e.target.name
         var value = e.target.value
@@ -19,11 +28,29 @@ export default function Login() {
 
     function postdata(e) {
         e.preventDefault()
-        alert(`
-            username : ${data.username}
-            password : ${data.password}
-            `)
+        var d = user.find((item) => item.username === data.username && item.password === data.password)
+
+        if (d) {
+
+            localStorage.setItem('login', true)
+            localStorage.setItem('username', user.username)
+            localStorage.setItem('name ', user.name)
+            localStorage.setItem('userid',user.id)
+            localStorage.setItem('role', user.role)
+            if (user.role === 'admin') {
+                navigate('/admin-home')
+            }else{
+                navigate('/profile')
+            }
+        } else {
+            alert('invalid Username Or Password !!!')
+        }
+
     }
+
+    useEffect(() => {
+        dispatch(getUser())
+    }, [])
 
 
     return (
