@@ -3,7 +3,8 @@
     border-radius: 1em;
     box-shadow: 2px 2px 5px rgba(0,0,0,0.6);
     color: rgb(15, 14, 14);
-    max-width: 450px;
+    max-width: 100%;
+ 
     overflow: hidden;
     position: relative;
     transition: background-color 0.3s, color 0.3s;

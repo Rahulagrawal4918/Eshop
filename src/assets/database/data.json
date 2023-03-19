@@ -364,20 +364,20 @@
       "id": 0
     },
     {
+      "id": 1,
       "name": "Rahul",
       "username": "rahul",
       "phone": "07852862759",
       "email": "rahulgupata4918@gmail.com",
       "password": "123456",
-      "addressline1": "",
-      "addressline2": "",
-      "addressline3": "",
-      "pin": "",
-      "city": "",
-      "state": "",
-      "pic": "",
-      "role": "user",
-      "id": 1
+      "addressline1": "Barahuwa Bazar",
+      "addressline2": "Block bankati",
+      "addressline3": "Block bankati",
+      "pin": "110042",
+      "city": "Basti",
+      "state": "Uttar Pradesh",
+      "pic": "bg_1.jpg",
+      "role": "user"
     },
     {
       "name": "akash",

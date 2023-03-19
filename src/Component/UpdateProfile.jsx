@@ -5,7 +5,6 @@ import { updateUser, getUser } from '../Store/ActionCreators/UserActionCreators'
 import '../assets/css/updateprofilecss.css'
 export default function UpdateProfile() {
     var [data, setdata] = useState({
-
         name: "",
         pic: "",
         email: "",
@@ -32,6 +31,7 @@ export default function UpdateProfile() {
             }
         })
     }
+
     function getFile(e) {
         var name = e.target.name
         console.log(e.target.files);
@@ -46,6 +46,7 @@ export default function UpdateProfile() {
     function postdata(e) {
         e.preventDefault()
         var userData = {
+            id: data.id,
             name: data.name,
             username: data.username,
             phone: data.phone,
@@ -60,6 +61,7 @@ export default function UpdateProfile() {
             pic: data.pic,
             role: data.role
         }
+
         dispatch(updateUser(userData))
         navigate('/profile')
     }
@@ -70,6 +72,7 @@ export default function UpdateProfile() {
         var d = user.find((item) => item.id === Number(localStorage.getItem("userid")))
         if (d)
             setdata(d)
+        console.log(data);
     }, [])
 
     return (
@@ -117,7 +120,10 @@ export default function UpdateProfile() {
                                         </div>
                                     </div>
                                     <div className="row mb-3 ">
-                                        <div className="filemodal col-12 m-auto">
+                                        <div className="col-md-6 col-12 ">
+                                            <input type="text" name='state' onChange={getdata} value={data.state} placeholder='Enter State :' className='form-control ' required />
+                                        </div>
+                                        <div className="filemodal col-md-6 col-12">
 
                                             <div className="filecontent">
                                                 <span className="filetitle">Upload Profile Pic</span>
@@ -134,6 +140,7 @@ export default function UpdateProfile() {
                                                 </div> : null}
                                             </div>
                                         </div>
+
 
                                     </div>
                                     <div className="mb-3">
