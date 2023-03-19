@@ -29,8 +29,10 @@ export default function AdminProduct() {
             field: 'disscount', headerName: 'Disscount', width: 80, renderCell: ({ row }) =>
                 <p>{row.disscount}%</p>
         },
-        { field: 'finalprice', headerName: 'Finalprice', width: 80, renderCell: ({ row }) =>
-        <p>&#8377; {row.finalprice}</p>},
+        {
+            field: 'finalprice', headerName: 'Finalprice', width: 80, renderCell: ({ row }) =>
+                <p>&#8377; {row.finalprice}</p>
+        },
         { field: 'description', headerName: 'Description', width: 150 },
         {
             field: 'pic1', headerName: 'Pic1', width: 120, renderCell: ({ row }) =>

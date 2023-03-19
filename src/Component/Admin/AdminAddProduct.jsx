@@ -58,7 +58,7 @@ export default function AdminAddProduct() {
         // var bp = Number(data.baseprice)
         // var d = Number(data.disscount)
         // var fp = parseInt(bp - (bp * d / 100))
-      
+
 
         var mc = data.maincategory
         if (mc === '')
@@ -71,7 +71,7 @@ export default function AdminAddProduct() {
             br = brand[0].name
 
         // console.log('price',bp , d , fp);
-        
+
         var item = {
             name: data.name,
             maincategory: mc,
@@ -91,7 +91,7 @@ export default function AdminAddProduct() {
         }
         dispatch(addProduct(item))
         navigate("/admin-product")
-        console.log('item price = ' ,item.baseprice ,item.disscount,item.finalprice);
+        console.log('item price = ', item.baseprice, item.disscount, item.finalprice);
 
     }
     useEffect(() => {

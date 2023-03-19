@@ -48,7 +48,7 @@ export default function Navbar() {
                             {
                                 localStorage.getItem("login") ?
                                     <li className="nav-item dropdown">
-                                        <Link className="nav-link dropdown-toggle" to="#" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Nitin Chauhan</Link>
+                                        <Link className="nav-link dropdown-toggle" to="#" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{localStorage.getItem("name")}</Link>
                                         <div className="dropdown-menu" aria-labelledby="dropdown04">
                                             <Link className="dropdown-item" to="/profile">Profile</Link>
                                             <Link className="dropdown-item" to="/cart">Cart</Link>

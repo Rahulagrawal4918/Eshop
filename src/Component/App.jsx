@@ -32,6 +32,7 @@ import AdminProduct from './Admin/AdminProduct'
 import AdminAddProduct from './Admin/AdminAddProduct'
 import AdminUpdateProduct from './Admin/AdminUpdateProduct'
 import Profile from './Profile'
+import UpdateProfile from './UpdateProfile'
 
 
 
@@ -53,6 +54,7 @@ export default function App() {
           <Route path='/login' element={<Login />} />
           <Route path='/signup' element={<Signup />} />
           <Route path='/profile' element={<Profile />} />
+          <Route path='/update-profile' element={<UpdateProfile />} />
 
 
           <Route path='/admin-home' element={<AdminHome />} />

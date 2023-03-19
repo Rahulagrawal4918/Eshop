@@ -12,7 +12,8 @@ export default function Login() {
     })
     var navigate = useNavigate()
     var dispatch = useDispatch()
-    
+    var win = window.localStorage
+
 
 
     function getdata(e) {
@@ -31,17 +32,13 @@ export default function Login() {
         var d = user.find((item) => item.username === data.username && item.password === data.password)
 
         if (d) {
-
-            localStorage.setItem('login', true)
-            localStorage.setItem('username', user.username)
-            localStorage.setItem('name ', user.name)
-            localStorage.setItem('userid',user.id)
-            localStorage.setItem('role', user.role)
-            if (user.role === 'admin') {
-                navigate('/admin-home')
-            }else{
-                navigate('/profile')
-            }
+            console.log(d);
+            win.setItem("login", true)
+            win.setItem("name", d.name)
+            win.setItem("username", d.username)
+            win.setItem("userid", d.id)
+            win.setItem("role", d.role)
+            navigate("/profile")
         } else {
             alert('invalid Username Or Password !!!')
         }
