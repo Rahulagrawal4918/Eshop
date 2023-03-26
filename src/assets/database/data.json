@@ -412,20 +412,20 @@
       "id": 3
     },
     {
-      "name": "deepak",
+      "id": 4,
+      "name": "Rahul",
       "username": "deepak gupta",
-      "phone": "7860321670",
+      "phone": "07852862759",
       "email": "rdeepakgupta@gmail.com",
       "password": "12345678",
-      "addressline1": "",
-      "addressline2": "",
-      "addressline3": "",
-      "pin": "",
-      "city": "",
-      "state": "",
-      "pic": "",
-      "role": "user",
-      "id": 4
+      "addressline1": "Barahuwa Bazar",
+      "addressline2": "Block bankati",
+      "addressline3": "Block bankati",
+      "pin": "232123",
+      "city": "Basti",
+      "state": "Uttar Pradesh",
+      "pic": "person_4.jpg",
+      "role": "user"
     }
   ],
   "cart": [

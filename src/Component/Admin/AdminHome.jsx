@@ -13,8 +13,8 @@ export default function Admin() {
                     </div>
                     <div className="col-lg-10 col-12">
                         <div className="row">
-                            <div className=" col-md-5 mt-2 w-100 ">
-                            <img src="assets/images/bg_1.jpg" height="400px" alt="img" />
+                            <div className=" col-md-5 mt-2  ">
+                            <img src="assets/images/bg_1.jpg" height="450px" className='w-100' alt="img" />
                             </div>
                             <div className=" col-md-7">
                                 <div className=" col-lg-12">

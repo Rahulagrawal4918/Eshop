@@ -22,9 +22,15 @@ export default function Profile() {
     return (
         <div className="container-fluid mt-5 mb-5">
             <div className="row">
-                <div className="col-md-6">
-                    <img src={`/assets/images/${user.pic}`} alt="profile pic" height='540px' className='w-100 ' />
+                {user.pic ? <div className="col-md-6 px-5">
+                    <a href={`/assets/images/${user.pic}`} target="_blank"><img src={`/assets/images/${user.pic}`} alt="profile pic" height='540px' className='w-100 ' />
+                    </a>
+                </div> : <div className="col-md-6 px-4">
+                    <a href='/assets/images/noimage.png' target="_blank"> <img src='/assets/images/noimage.png' alt="profile pic" height='540px' className='w-100 ' />
+                    </a>
                 </div>
+
+                }
                 <div className="col-md-6">
                     <h3 className='text-center text-light bg-secondary w-100 '>User Profile</h3>
                     <div className="admin-table d-flex ">
