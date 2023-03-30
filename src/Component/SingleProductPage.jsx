@@ -1,24 +1,82 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { Link, useParams } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 import { getProduct } from '../Store/ActionCreators/ProductActionCreators'
+import { addCart, getCart } from '../Store/ActionCreators/CartActionCreators'
+
+import { addWishlist, getWishlist } from '../Store/ActionCreators/WishlistActionCreators'
 
 export default function SingleProduct() {
     var dispatch = useDispatch()
+    var navigate = useNavigate()
     var { id } = useParams()
-    var [p, setp] = useState({})
+    var [data, setdata] = useState({})
     var [qty, setqty] = useState(1)
     var product = useSelector((state) => state.ProductStateData)
+    var cart = useSelector((state) => state.CartStateData)
+    var wishlist = useSelector((state) => state.CartStateData)
 
+
+    function postCartdata() {
+        var cartitem = cart.find((item) => cart.productid === data.id && cart.userid === localStorage.getItem('userid'))
+        if (cartitem) {
+            console.log('id', data.id);
+            var item = {
+
+                productid: data.id,
+                userid: localStorage.getItem('userid'),
+                name: data.name,
+                color: data.color,
+                size: data.size,
+                price: data.finalprice,
+                qty: qty,
+                total: data.finalprice * qty,
+                pic: data.pic1,
+            }
+            dispatch(addCart(item))
+            navigate('/cart')
+        }
+        else {
+            navigate('/cart')
+        }
+
+    }
+
+    function postWishlistdata() {
+
+        if (wishlist.productid === data.id && wishlist.userid === localStorage.getItem('userid')) {
+            navigate('/wishlist')
+        }
+        else {
+
+            var item = {
+
+                productid: data.id,
+                userid: localStorage.getItem('userid'),
+                name: data.name,
+                color: data.color,
+                size: data.size,
+                price: data.finalprice,
+                qty: qty,
+                total: data.finalprice * qty,
+                pic: data.pic1,
+            }
+            dispatch(addWishlist(item))
+            navigate('/wishlistt')
+        }
+    }
 
     function getAPIData() {
         dispatch(getProduct())
+        dispatch(getCart())
+        dispatch(getWishlist())
     }
     useEffect(() => {
         getAPIData()
-        var data = product.find((item) => item.id === Number(id))
-        if (data)
-            setp(data)
+
+        var p = product.find((item) => item.id === Number(id))
+        if (p)
+            setdata(p)
 
         console.log(data);
 
@@ -28,16 +86,7 @@ export default function SingleProduct() {
 
     return (
         <>
-            {/* <div className="hero-wrap hero-bread" style={{ backgroundImage: "url('/assets/images/bg_6.jpg')" }}>
-                <div className="container">
-                    <div className="row no-gutters slider-text align-items-center justify-content-center">
-                        <div className="col-md-9 ftco-animate text-center">
-                            <p className="breadcrumbs"><span className="mr-2"><a href="/">Home</a></span> <span>Shop</span></p>
-                            <h1 className="mb-0 bread">Shop</h1>
-                        </div>
-                    </div>
-                </div>
-            </div> */}
+
 
             <section className="ftco-section">
                 <div className="container">
@@ -46,19 +95,19 @@ export default function SingleProduct() {
                             <div id="carouselExampleControls" className="carousel slide" data-ride="carousel">
                                 <div className="carousel-inner">
                                     <div className="carousel-item active">
-                                        <a target='_blank' href={`/assets/productimages/${p.pic1}`}><img src={`/assets/productimages/${p.pic1}`} height="600px" className="d-block w-100" alt="..." />
+                                        <a target='_blank' href={`/assets/productimages/${data.pic1}`}><img src={`/assets/productimages/${data.pic1}`} height="600px" className="d-block w-100" alt="..." />
                                         </a>
                                     </div>
                                     <div className="carousel-item">
-                                        <a target='_blank' href={`/assets/productimages/${p.pic2}`}><img src={`/assets/productimages/${p.pic2}`} height="600px" className="d-block w-100" alt="..." />
+                                        <a target='_blank' href={`/assets/productimages/${data.pic2}`}><img src={`/assets/productimages/${data.pic2}`} height="600px" className="d-block w-100" alt="..." />
                                         </a>
                                     </div>
                                     <div className="carousel-item ">
-                                        <a target='_blank' href={`/assets/productimages/${p.pic3}`}><img src={`/assets/productimages/${p.pic3}`} height="600px" className="d-block w-100" alt="..." />
+                                        <a target='_blank' href={`/assets/productimages/${data.pic3}`}><img src={`/assets/productimages/${data.pic3}`} height="600px" className="d-block w-100" alt="..." />
                                         </a>
                                     </div>
                                     <div className="carousel-item">
-                                        <a target='_blank' href={`/assets/productimages/${p.pic4}`}><img src={`/assets/productimages/${p.pic4}`} height="600px" className="d-block w-100" alt="..." />
+                                        <a target='_blank' href={`/assets/productimages/${data.pic4}`}><img src={`/assets/productimages/${data.pic4}`} height="600px" className="d-block w-100" alt="..." />
                                         </a>
                                     </div>
                                 </div>
@@ -73,34 +122,34 @@ export default function SingleProduct() {
                             </div>
                         </div>
                         <div className="col-lg-6">
-                            <h3>{p.name}</h3>
+                            <h3>{data.name}</h3>
                             <div className='d-flex'>
                                 <div className='border  p-3 w-50'>Category</div>
-                                <div className='border  p-3 w-50'>{p.maincategory}/{p.subcategory}</div>
+                                <div className='border  p-3 w-50'>{data.maincategory}/{data.subcategory}</div>
                             </div>
                             <div className='d-flex'>
                                 <div className='border  p-3 w-50'>Brand</div>
-                                <div className='border  p-3 w-50'>{p.brand}</div>
+                                <div className='border  p-3 w-50'>{data.brand}</div>
                             </div>
                             <div className='d-flex'>
                                 <div className='border  p-3 w-50'>Price</div>
-                                <div className='border  p-3 w-50'><del>&#8377;{p.baseprice}</del><sup>&#8377;{p.finalprice}</sup> &nbsp;&nbsp;&nbsp;{p.disscount}% Off</div>
+                                <div className='border  p-3 w-50'><del>&#8377;{data.baseprice}</del><sup>&#8377;{data.finalprice}</sup> &nbsp;&nbsp;&nbsp;{data.disscount}% Off</div>
                             </div>
                             <div className='d-flex'>
                                 <div className='border  p-3 w-50'>Color</div>
-                                <div className='border  p-3 w-50'>{p.color}</div>
+                                <div className='border  p-3 w-50'>{data.color}</div>
                             </div>
                             <div className='d-flex'>
                                 <div className='border  p-3 w-50'>Size</div>
-                                <div className='border  p-3 w-50'>{p.size}</div>
+                                <div className='border  p-3 w-50'>{data.size}</div>
                             </div>
                             <div className='d-flex'>
                                 <div className='border  p-3 w-50'>Stock</div>
-                                <div className='border  p-3 w-50'>{p.stock}</div>
+                                <div className='border  p-3 w-50'>{data.stock}</div>
                             </div>
                             <div className='d-flex'>
                                 <div className='border  p-3 w-50'>Description</div>
-                                <div className='border  p-3 w-50'>{p.description}</div>
+                                <div className='border  p-3 w-50'>{data.description}</div>
                             </div>
 
 
@@ -126,8 +175,8 @@ export default function SingleProduct() {
                                 </div>
                             </div>
                             <div className='d-flex'>
-                                <button className="btn btn-secondary w-50 w-50 mr-2">Add to Cart</button>
-                                <button className="btn btn-secondary  w-50">Add to Wishlist</button>
+                                <button className="btn btn-secondary w-50 w-50 mr-2" onClick={postCartdata}>Add to Cart</button>
+                                <button className="btn btn-secondary  w-50" onClick={postWishlistdata}>Add to Wishlist</button>
                             </div>
                         </div>
                     </div>

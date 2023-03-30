@@ -215,5 +215,86 @@ export async function deleteUserAPI(data){
 
 
 
+//services for Cart
+export async function createCartAPI(data){
+    var response = await fetch("/cart",{
+        method:"post",
+        headers:{
+            "content-type":"application/json"
+        },
+        body:JSON.stringify(data)
+    })
+    return await response.json()
+} 
+export async function getCartAPI(){
+    var response = await fetch("/cart",{
+        method:"get",
+        headers:{
+            "content-type":"application/json"
+        }
+    })
+    return await response.json()
+}
+export async function updateCartAPI(data){
+    var response = await fetch("/cart/"+data.id,{
+        method:"put",
+        headers:{
+            "content-type":"application/json"
+        },
+        body:JSON.stringify(data)
+    })
+    return await response.json()
+} 
+export async function deleteCartAPI(data){
+    var response = await fetch("/cart/"+data.id,{
+        method:"delete",
+        headers:{
+            "content-type":"application/json"
+        }
+    })
+    return await response.json()
+}
+
+
+//services for Wishlist
+export async function createWishlistAPI(data){
+    var response = await fetch("/wishlist",{
+        method:"post",
+        headers:{
+            "content-type":"application/json"
+        },
+        body:JSON.stringify(data)
+    })
+    return await response.json()
+} 
+export async function getWishlistAPI(){
+    var response = await fetch("/wishlist",{
+        method:"get",
+        headers:{
+            "content-type":"application/json"
+        }
+    })
+    return await response.json()
+}
+export async function updateWishlistAPI(data){
+    var response = await fetch("/wishlist/"+data.id,{
+        method:"put",
+        headers:{
+            "content-type":"application/json"
+        },
+        body:JSON.stringify(data)
+    })
+    return await response.json()
+} 
+export async function deleteWishlistAPI(data){
+    var response = await fetch("/wishlist/"+data.id,{
+        method:"delete",
+        headers:{
+            "content-type":"application/json"
+        }
+    })
+    return await response.json()
+}
+
 
 

@@ -5,6 +5,8 @@ import { SubcategorySaga } from "./SubcategorySaga"
 import { BrandSaga } from "./BrandSaga"
 import { ProductSaga } from "./ProductSaga"
 import { UserSaga } from "./UserSaga"
+import { CartSaga } from "./CartSaga"
+import { WishlistSaga } from "./WishlistSaga"
 
 
 
@@ -16,6 +18,8 @@ export default function* RootSaga() {
             BrandSaga(),
             ProductSaga(),
             UserSaga(),
+            CartSaga(),
+            WishlistSaga()
         ]
     )
 }
