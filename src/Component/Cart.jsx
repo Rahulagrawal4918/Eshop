@@ -33,8 +33,8 @@ export default function Cart() {
 			settotal(total)
 			setfinal(final)
 			setshipping(shipping)
-			var dis = parseInt((baseprice - price) / baseprice * 100)
-			console.log(dis);
+			var dis = parseInt((baseprice - price) )
+			
 			setdisscount(dis)
 		}
 	}

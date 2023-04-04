@@ -300,7 +300,7 @@ export async function deleteWishlistAPI(data){
 
 
 //services for checkout
-export async function createCheckout(data){
+export async function createCheckoutAPI(data){
     var response = await fetch("/checkout",{
         method:"post",
         headers:{
@@ -310,7 +310,7 @@ export async function createCheckout(data){
     })
     return await response.json()
 } 
-export async function getCheckout(){
+export async function getCheckoutAPI(){
     var response = await fetch("/checkout",{
         method:"get",
         headers:{
@@ -319,7 +319,7 @@ export async function getCheckout(){
     })
     return await response.json()
 }
-export async function updateCheckout(data){
+export async function updateCheckoutAPI(data){
     var response = await fetch("/checkout/"+data.id,{
         method:"put",
         headers:{
@@ -329,7 +329,7 @@ export async function updateCheckout(data){
     })
     return await response.json()
 } 
-export async function deleteCheckout(data){
+export async function deleteCheckoutAPI(data){
     var response = await fetch("/checkout/"+data.id,{
         method:"delete",
         headers:{

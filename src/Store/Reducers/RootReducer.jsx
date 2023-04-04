@@ -7,6 +7,7 @@ import { ProductReducer } from "./ProductReducer"
 import { UserReducer } from "./UserReducer"
 import { CartReducer } from "./CartReducer"
 import { WishlistReducer } from "./WishlistReducer"
+import { CheckoutReducer } from "./CheckoutReducer"
 
 export default combineReducers({
     MaincategoryStateData: MaincategoryReducer,
@@ -16,6 +17,7 @@ export default combineReducers({
     UserStateData: UserReducer,
     CartStateData: CartReducer,
     WishlistStateData: WishlistReducer,
+    CheckoutStateData: CheckoutReducer,
    
 })
    

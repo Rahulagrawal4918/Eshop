@@ -5,7 +5,9 @@ export function CheckoutReducer(state = [], action) {
             state.push(action.data)
             return state
         case GET_CHECKOUT_RED:
+            // console.log('reducer', action.data);
             return action.data
+          
         case DELETE_CHECKOUT_RED:
             var newState = state.filter(item => item.id !== action.data.id)
             return newState

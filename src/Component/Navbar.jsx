@@ -52,6 +52,7 @@ export default function Navbar() {
                                         <div className="dropdown-menu" aria-labelledby="dropdown04">
                                             <Link className="dropdown-item" to="/profile">Profile</Link>
                                             <Link className="dropdown-item" to="/cart">Cart</Link>
+                                            <Link className="dropdown-item" to="/myorder">My Order</Link>
                                             <button className="dropdown-item" onClick={logout}>Logout</button>
                                         </div>
                                     </li> :

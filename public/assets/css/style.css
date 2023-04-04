@@ -15,6 +15,7 @@
   position: sticky;
   top: 7%;
   right: 0;
+  /* border-right: dashed 1px lightgray; */
 }
 
 .place-order {

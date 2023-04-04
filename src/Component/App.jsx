@@ -33,6 +33,8 @@ import AdminAddProduct from './Admin/AdminAddProduct'
 import AdminUpdateProduct from './Admin/AdminUpdateProduct'
 import Profile from './Profile'
 import UpdateProfile from './UpdateProfile'
+import Confirmation from './Confirmation'
+import MyOrder from './Admin/MyOrder'
 
 
 
@@ -55,7 +57,8 @@ export default function App() {
           <Route path='/signup' element={<Signup />} />
           <Route path='/profile' element={<Profile />} />
           <Route path='/update-profile' element={<UpdateProfile />} />
-
+          <Route path='/confirmation' element={<Confirmation />} />
+          <Route path='/myorder' element={<MyOrder />} />
 
           <Route path='/admin-home' element={<AdminHome />} />
 

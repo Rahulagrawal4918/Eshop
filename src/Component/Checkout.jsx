@@ -1,11 +1,14 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { Link } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import { getUser } from '../Store/ActionCreators/UserActionCreators'
-import { getCart } from '../Store/ActionCreators/CartActionCreators'
+import { getCart, deleteCart } from '../Store/ActionCreators/CartActionCreators'
+import { addCheckout } from '../Store/ActionCreators/CheckoutActionCreators'
+
 
 export default function Checkout() {
     var dispatch = useDispatch()
+    var navigate = useNavigate()
     var users = useSelector((state) => state.UserStateData)
     var carts = useSelector((state) => state.CartStateData)
     var [user, setuser] = useState({})
@@ -22,15 +25,22 @@ export default function Checkout() {
             paymentmode: mode,
             paymentstatus: 'pending',
             orderstatus: 'Order Placed',
-            time: new Date(),
+            time: new Date().toJSON().slice(0, 10) + " " + " " + new Date().toJSON().slice(11, 19),
             totalAmount: total,
             finalAmount: final,
             shippingAmount: shipping,
             disscountAmount: disscount,
-            products : cart
+            products: cart
 
         }
-        dispatch()
+
+        dispatch(addCheckout(item))
+        for (item of cart) {
+            console.log(item
+            );
+            dispatch(deleteCart(item))
+        }
+        navigate('/confirmation')
     }
 
     function payMode(data) {
@@ -151,7 +161,7 @@ export default function Checkout() {
                                 <div className="form-group">
                                     <div className="col-md-12">
                                         <div className="radio">
-                                            <label><input type="radio" onChange={() => payMode('netBanking')} name="optradio" class Name="mr-2" value='upi' />Net Banking/UPI/Cards</label>
+                                            <label><input type="radio" onChange={() => payMode('netBanking')} name="optradio" className="mr-2" value='upi' />Net Banking/UPI/Cards</label>
                                         </div>
                                     </div>
                                 </div>
