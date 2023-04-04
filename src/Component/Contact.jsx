@@ -1,20 +1,21 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
+import { useDispatch } from 'react-redux'
 import { Link } from 'react-router-dom'
+// import {} from '../Store/ActionCreators/'
 
 export default function Contact() {
+    var dispatch = useDispatch()
+    var [data, setdata] = useState({
+        name: '',
+        email: '',
+        phone: '',
+        subject: '',
+        message: ''
+
+    })
+
     return (
         <>
-            <div className="hero-wrap hero-bread" style={{ backgroundImage: "url('assets/images/bg_6.jpg')" }}>
-                <div className="container">
-                    <div className="row no-gutters slider-text align-items-center justify-content-center">
-                        <div className="col-md-9 ftco-animate text-center">
-                            <p className="breadcrumbs"><span className="mr-2"><Link to="/">Home</Link></span> <span>Contact</span></p>
-                            <h1 className="mb-0 bread">Contact Us</h1>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
             <section className="ftco-section contact-section bg-light">
                 <div className="container">
                     <div className="row d-flex mb-5 contact-info">
@@ -44,16 +45,19 @@ export default function Contact() {
                         <div className="col-md-6 order-md-last d-flex">
                             <form action="#" className="bg-white p-5 contact-form">
                                 <div className="form-group">
-                                    <input type="text" className="form-control" placeholder="Your Name" />
+                                    <input type="text" className="form-control" placeholder="Enter Your Name" />
                                 </div>
                                 <div className="form-group">
-                                    <input type="text" className="form-control" placeholder="Your Email" />
+                                    <input type="text" className="form-control" placeholder="Enter Your Email" />
                                 </div>
                                 <div className="form-group">
-                                    <input type="text" className="form-control" placeholder="Subject" />
+                                    <input type="text" className="form-control" placeholder="Enter Your Phone" />
                                 </div>
                                 <div className="form-group">
-                                    <textarea name="" id="" cols="30" rows="7" className="form-control" placeholder="Message"></textarea>
+                                    <input type="text" className="form-control" placeholder=" Enter Subject..." />
+                                </div>
+                                <div className="form-group">
+                                    <textarea name="" id="" cols="30" rows="7" className="form-control" placeholder="Message..."></textarea>
                                 </div>
                                 <div className="form-group">
                                     <input type="submit" value="Send Message" className="btn btn-primary py-3 px-5" />
