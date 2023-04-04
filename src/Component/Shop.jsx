@@ -140,7 +140,7 @@ export default function Shop() {
                                                 </a>
                                                 <div className="text py-3 pb-4 px-3">
 
-                                                    <h3><a href="/single-product">{item.name}</a></h3>
+                                                    <h3> <Link to={`/single-product/${item.id}`} >{item.name}</Link></h3>
                                                     <p>{`${item.description.slice(0, 20)}...`}</p>
                                                     <div className="pricing">
                                                         <p className="price"><span className="mr-2 price-dc">&#8377;{item.baseprice}</span><span className="price-sale">&#8377;{item.finalprice}</span></p>

@@ -4,20 +4,40 @@ import { useDispatch, useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { getUser } from '../Store/ActionCreators/UserActionCreators'
 
+import { deleteWishlist, getWishlist } from '../Store/ActionCreators/WishlistActionCreators'
+
+
 
 export default function Profile() {
 
     var dispatch = useDispatch()
     var users = useSelector((state) => state.UserStateData)
+    var wishlists = useSelector((state) => state.WishlistStateData)
     var [user, setuser] = useState({})
+    var [wishlist, setwishlist] = useState([])
 
-    useEffect(() => {
+    function getAPIData() {
         dispatch(getUser())
+        dispatch(getWishlist())
         var data = users.find((item) => item.id === Number(localStorage.getItem("userid")))
         if (data)
             setuser(data)
 
-    }, [])
+        var wishdata = wishlists.filter((item) => item.userid === localStorage.getItem("userid"))
+        console.log(wishdata);
+        if (wishdata)
+            setwishlist(wishdata)
+
+    }
+
+    function deleteWishlistitem(id) {
+        dispatch(deleteWishlist({ id: id }))
+        getAPIData()
+    }
+    useEffect(() => {
+        getAPIData()
+
+    }, [users.length, wishlists.length])
 
     return (
         <div className="container-fluid mt-5 mb-5">
@@ -78,6 +98,39 @@ export default function Profile() {
                     </div>
                 </div>
             </div>
+
+
+            <div className="row ">
+                <h1 className='text-center bg-secondary w-100 mt-2 text-light'>Wishlist</h1>
+                <div className="col-1"></div>
+                <div className="col-lg-10 mt-3 border mb-3 cart-row-bg ">
+                    {
+                        wishlist.length === 0 ? <h1>You Don't Have Any Wishlist Item</h1> :
+                            wishlist.map((item, index) => {
+                                return <div key={index} className="row p-4  border-bottom">
+
+                                    <div className="col-lg-3">
+                                        <Link to={`/single-product/${item.productid}`}><img src={`/assets/productimages/${item.pic}`} className='' width='100%' height='200px' alt="img" />
+                                        </Link>
+                                    </div>
+                                    <div className="col-lg-9 ">
+                                        <h3> <Link to={`/single-product/${item.productid}`}> {item.name} </Link></h3>
+                                        <span>{item.description}</span> <br />
+                                        <span><b>{item.color} </b>/<b>{item.size}</b> &nbsp;  &nbsp; </span> <strong>{item.stock}</strong>
+                                        <p className="price mt-1  mb-0 price-sale"> <strong >  <span className="mr-2 price-dc"><del> &#8377;{item.baseprice} </del></span><span className="price-sale"> &#8377;{item.price} </span> <span className="price-sale text-success"> <sup> {item.disscount}% off </sup> </span> </strong></p>
+                                        <h5 className='p-0 m-0 price-sale '><strong>Total Price :  {item.total}</strong></h5>
+                                        <button className='btn-danger mt-3 ' onClick={() => deleteWishlistitem(item.id)}>REMOVE</button>
+                                    </div>
+                                </div>
+
+                            })
+
+                    }
+                </div>
+                <div className="col-1"></div>
+
+            </div>
+
         </div>
     )
 }
