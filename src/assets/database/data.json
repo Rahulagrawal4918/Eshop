@@ -449,38 +449,6 @@
       "id": 1
     },
     {
-      "productid": 13,
-      "userid": "2",
-      "name": "Solid white t-shirt",
-      "color": "White",
-      "size": "Lg",
-      "baseprice": 1054,
-      "disscount": 50,
-      "price": 527,
-      "stock": "in Stock",
-      "description": "latest Solid white Tshirt for men and women both",
-      "qty": 1,
-      "total": 527,
-      "pic": "p24.jpg",
-      "id": 2
-    },
-    {
-      "productid": 14,
-      "userid": "2",
-      "name": "High Heels",
-      "color": "Red",
-      "size": "6",
-      "baseprice": 5684,
-      "disscount": 32,
-      "price": 3865,
-      "stock": "in Stock",
-      "description": "Latest designed Bata High Heels for Women",
-      "qty": 1,
-      "total": 3865,
-      "pic": "product9.jpg",
-      "id": 3
-    },
-    {
       "productid": 10,
       "userid": "2",
       "name": "Female Jeans Ripped ",

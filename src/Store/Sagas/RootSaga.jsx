@@ -7,6 +7,8 @@ import { ProductSaga } from "./ProductSaga"
 import { UserSaga } from "./UserSaga"
 import { CartSaga } from "./CartSaga"
 import { WishlistSaga } from "./WishlistSaga"
+import { CheckoutSaga } from "./CheckoutSaga"
+
 
 
 
@@ -19,7 +21,8 @@ export default function* RootSaga() {
             ProductSaga(),
             UserSaga(),
             CartSaga(),
-            WishlistSaga()
+            WishlistSaga(),
+            CheckoutSaga()
         ]
     )
 }

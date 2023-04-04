@@ -14,8 +14,28 @@ export default function Checkout() {
     var [final, setfinal] = useState(0)
     var [disscount, setdisscount] = useState(0)
     var [shipping, setshipping] = useState(0)
+    var [mode, setmode] = useState('COD')
 
+    function placeOrder() {
+        var item = {
+            userid: localStorage.getItem('userid'),
+            paymentmode: mode,
+            paymentstatus: 'pending',
+            orderstatus: 'Order Placed',
+            time: new Date(),
+            totalAmount: total,
+            finalAmount: final,
+            shippingAmount: shipping,
+            disscountAmount: disscount,
+            products : cart
 
+        }
+        dispatch()
+    }
+
+    function payMode(data) {
+        setmode(data)
+    }
 
     function getAPIData() {
         dispatch(getUser())
@@ -45,7 +65,6 @@ export default function Checkout() {
             setfinal(final)
             setshipping(shipping)
             var dis = parseInt((baseprice - price))
-            console.log(dis);
             setdisscount(dis)
         }
 
@@ -103,11 +122,9 @@ export default function Checkout() {
                                 <div className='border py-3 px-3 w-50 '>Role</div>
                                 <div className='border py-3 px-3 w-50 '>{user.role}</div>
                             </div>
-
                         </div>
 
                         <div className="col-lg-6 ftco-animate">
-
                             <div className="cart-detail cart-total bg-light  ">
                                 <h3 className="billing-heading mb-4">Cart Total</h3>
                                 <p className="d-flex">
@@ -125,29 +142,28 @@ export default function Checkout() {
                                 <hr />
                                 <p className="d-flex total-price">
                                     <span>Total Amount</span>
-                                    <span>{final}</span>
+                                    <span> &#8377;{final}</span>
                                 </p>
                             </div>
-
 
                             <div className="cart-detail bg-light p-3 p-md-4">
                                 <h3 className="billing-heading mb-4">Payment Method</h3>
                                 <div className="form-group">
                                     <div className="col-md-12">
                                         <div className="radio">
-                                            <label><input type="radio" name="optradio" className="mr-2" value='upi'/>Net Banking/UPI/Cards</label>
+                                            <label><input type="radio" onChange={() => payMode('netBanking')} name="optradio" class Name="mr-2" value='upi' />Net Banking/UPI/Cards</label>
                                         </div>
                                     </div>
                                 </div>
                                 <div className="form-group">
                                     <div className="col-md-12">
                                         <div className="radio">
-                                            <label><input type="radio" name="optradio" className="mr-2" defaultChecked value='cod'/> Cash On Delevery</label>
+                                            <label><input type="radio" onChange={() => payMode('COD')} name="optradio" className="mr-2" defaultChecked value='cod' /> Cash On Delevery</label>
                                         </div>
                                     </div>
                                 </div>
-                                
-                                <p><a href="#" className="btn btn-success w-100 py-3 px-4">Place an order</a></p>
+
+                                <p><button className="btn btn-success w-100 py-3 px-4" onClick={placeOrder}>Place an order</button></p>
                                 <div className="form-group mt-5">
                                     <div className="col-md-12">
                                         <div className="radio">
@@ -160,11 +176,9 @@ export default function Checkout() {
                     </div>
                     <hr />
                     <div className="text-center mb-3">
-                    <span className='text-center m-auto border-bottom  border-5  h2 '>Cart Details</span>
+                        <span className='text-center m-auto border-bottom  border-5  h2 '>Cart Details</span>
                     </div>
                     <div className="row  mb-3">
-
-           
                         {
                             cart.map((item, index) => {
                                 return <div key={index} className="row   float-left w-50  border-bottom">
@@ -183,113 +197,11 @@ export default function Checkout() {
                                         {/* <button className='btn-danger mt-3 ' onClick={() => deleteCartItem(item.id)}>REMOVE</button> */}
                                     </div>
                                 </div>
-
                             })
-
                         }
                     </div>
-                
-            </div >
-        </section >
-
-        {/* <section className="ftco-section">
-                <div className="container">
-                    <div className="row justify-content-center">
-                        <div className="col-xl-10 ftco-animate">
-                            <form action="#" className="billing-form">
-                                <h3 className="mb-4 billing-heading">Billing Details</h3>
-                                <div className="row align-items-end">
-                                    <div className="col-md-6">
-                                        <div className="form-group">
-                                            <label for="firstname">Firt Name</label>
-                                            <input type="text" className="form-control" placeholder="" />
-                                        </div>
-                                    </div>
-                                    <div className="col-md-6">
-                                        <div className="form-group">
-                                            <label for="lastname">Last Name</label>
-                                            <input type="text" className="form-control" placeholder="" />
-                                        </div>
-                                    </div>
-                                    <div className="w-100"></div>
-                                    <div className="col-md-12">
-                                        <div className="form-group">
-                                            <label for="country">Country</label>
-                                            <div className="select-wrap">
-                                                <div className="icon"><span className="ion-ios-arrow-down"></span></div>
-                                                <select name="" id="" className="form-control">
-                                                    <option value="">India</option>
-                                                    <option value="">France</option>
-                                                    <option value="">Italy</option>
-                                                    <option value="">Philippines</option>
-                                                    <option value="">South Korea</option>
-                                                    <option value="">Hongkong</option>
-                                                    <option value="">Japan</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div className="w-100"></div>
-                                    <div className="col-md-6">
-                                        <div className="form-group">
-                                            <label for="streetaddress">Street Address</label>
-                                            <input type="text" className="form-control" placeholder="House number and street name" />
-                                        </div>
-                                    </div>
-                                    <div className="col-md-6">
-                                        <div className="form-group">
-                                            <input type="text" className="form-control" placeholder="Appartment, suite, unit etc: (optional)" />
-                                        </div>
-                                    </div>
-                                    <div className="w-100"></div>
-                                    <div className="col-md-6">
-                                        <div className="form-group">
-                                            <label for="towncity">Town / City</label>
-                                            <input type="text" className="form-control" placeholder="" />
-                                        </div>
-                                    </div>
-                                    <div className="col-md-6">
-                                        <div className="form-group">
-                                            <label for="postcodezip">Postcode / ZIP *</label>
-                                            <input type="text" className="form-control" placeholder="" />
-                                        </div>
-                                    </div>
-                                    <div className="w-100"></div>
-                                    <div className="col-md-6">
-                                        <div className="form-group">
-                                            <label for="phone">Phone</label>
-                                            <input type="text" className="form-control" placeholder="" />
-                                        </div>
-                                    </div>
-                                    <div className="col-md-6">
-                                        <div className="form-group">
-                                            <label for="emailaddress">Email Address</label>
-                                            <input type="text" className="form-control" placeholder="" />
-                                        </div>
-                                    </div>
-                                    <div className="w-100"></div>
-                                    <div className="col-md-12">
-                                        <div className="form-group mt-4">
-                                            <div className="radio">
-                                                <label className="mr-3"><input type="radio" name="optradio" /> Create an Account? </label>
-                                                <label><input type="radio" name="optradio" /> Ship to different address</label>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </form>
-
-
-
-                            <div className="row mt-5 pt-3 d-flex">
-                                
-                                
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section> */}
-
+                </div >
+            </section >
         </>
     )
 }
