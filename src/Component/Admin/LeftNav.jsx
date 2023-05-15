@@ -11,7 +11,7 @@ export default function LeftNav() {
                 <Link to="/admin-subcategory" className="list-group-item list-group-item-action">Subcategories</Link>
                 <Link to="/admin-brand" className="list-group-item list-group-item-action">Brands</Link>
                 <Link to="/admin-product" className="list-group-item list-group-item-action">Products</Link>
-                <Link to="/admin-contact" className="list-group-item list-group-item-action">Contact Us</Link>
+                <Link to="/admin-contactus" className="list-group-item list-group-item-action">Contact Us</Link>
                 <Link to="/admin-newslatter" className="list-group-item list-group-item-action">Newslatters</Link>
                 <Link to="/admin-checkout" className="list-group-item list-group-item-action">Checkouts</Link>
             </div>

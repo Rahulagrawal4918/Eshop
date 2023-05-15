@@ -35,6 +35,12 @@ import Profile from './Profile'
 import UpdateProfile from './UpdateProfile'
 import Confirmation from './Confirmation'
 import MyOrder from './Admin/MyOrder'
+import AdminContactUs from './Admin/AdminContactUs'
+import AdminSingleContact from './Admin/AdminSingleContact'
+import AdminCheckout from './Admin/AdminCheckout'
+import AdminSingleCheckout from './Admin/AdminSingleCheckout'
+import AdminNewslatter from './Admin/AdminNewslatter'
+import AdminUsers from './Admin/AdminUsers'
 
 
 
@@ -61,7 +67,14 @@ export default function App() {
           <Route path='/myorder' element={<MyOrder />} />
 
           <Route path='/admin-home' element={<AdminHome />} />
-
+          <Route path='/admin-user' element={<AdminUsers />} />
+         
+          <Route path='/admin-contactus' element={<AdminContactUs />} />
+          <Route path='/admin-single-contact/:id' element={<AdminSingleContact />} />
+          <Route path='/admin-checkout' element={<AdminCheckout />} />
+          <Route path='/admin-single-checkout/:id' element={<AdminSingleCheckout />} />
+          <Route path='/admin-newslatter' element={<AdminNewslatter />} />
+         
           {/* admin maincategory */}
           <Route path='/admin-maincategory' element={<AdminMaincategory />} />
           <Route path='/admin-add-maincategory' element={<AdminAddMaincategory />} />
@@ -81,7 +94,7 @@ export default function App() {
           {/* admin product */}
           <Route path='/admin-product' element={<AdminProduct />} />
           <Route path='/admin-add-product' element={<AdminAddProduct />} />
-          <Route path='/admin-update-product/:id' element={<AdminUpdateProduct/>} />
+          <Route path='/admin-update-product/:id' element={<AdminUpdateProduct />} />
         </Routes>
         <Footer />
       </BrowserRouter>

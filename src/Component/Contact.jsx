@@ -78,12 +78,12 @@ export default function Contact() {
                     </div>
                     <div className="row block-9">
                         <div className="col-md-6 order-md-last ">
-                           {show? <div class="alert text-center alert-success alert-dismissible fade show" role="alert">
+                            {show ? <div class="alert text-center alert-success alert-dismissible fade show" role="alert">
                                 <strong>Submitted!!</strong> Thank You For Contact Us!! Our Team Will Contact You Soon!!
                                 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                                     <span aria-hidden="true">&times;</span>
                                 </button>
-                            </div>:''}
+                            </div> : ''}
                             <form onSubmit={postdata} className="bg-white p-4 contact-form">
                                 <div className="form-group">
                                     <input type="text" className="form-control" name='name' value={data.name} required onChange={getdata} placeholder="Enter Your Name" />

@@ -1,20 +1,37 @@
 
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { getProduct } from '../Store/ActionCreators/ProductActionCreators'
+import { getNewslatter, addNewslatter } from '../Store/ActionCreators/NewslatterActionCreators'
 
 export default function Home() {
   var dispatch = useDispatch()
 
   var product = useSelector((state) => state.ProductStateData)
-
+  var newslatter = useSelector((state) => state.NewslatterStateData)
+  var [email, setemail] = useState('')
+  var [status, setstatus] = useState(false)
   product.sort((x, y) => y.id - x.id)
 
   product = product.slice(0, 8)
+  function postData(e){
+    e.preventDefault()
+    var data = newslatter.find((item)=>item.email===email)
+    if(data){
+      alert('Email Adrress Is Allready Registered!!')
+    }
+    else{
+
+        dispatch(addNewslatter({email})) 
+        setstatus(true)
+    }
+
+  }
 
   function getAPIData() {
     dispatch(getProduct())
+    dispatch(getNewslatter())
   }
   useEffect(() => {
     getAPIData()
@@ -372,7 +389,23 @@ export default function Home() {
           </div>
         </div>
       </section>
+      <section className="ftco-gallery ">
+        <div className="container d-flex justify-content-center  ">
 
+          <div className="">
+
+            {status ? <div className="mt-3">  <div class="alert alert-info p-3" role="alert">
+              <h3>Thank You For Subscribe Our Service!!</h3>
+            </div></div> :
+              <div className="">
+                <div className="head"> <h3 className='text-center'><b>Subscribe Our Service</b></h3></div>
+                <form onSubmit={postData}>
+                  <div className="input mb-3"> <input type="email" className='form-control w-100' onChange={(e) => setemail(e.target.value)} /></div>
+                  <div className="sub-btn mb-3"> <button type='submit' className='btn btn-secondary w-100 p-3' >Subscribe</button></div>
+                </form> </div>}
+          </div>
+        </div>
+      </section>
       <section className="ftco-gallery ">
         <div className="container ">
           <div className="row justify-content-center ">
